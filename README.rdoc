@@ -1,9 +1,23 @@
 = google_maps_geocoder
 
-Description goes here.
+Simple PORO wrapper for a Google-Maps geocoding call.
+
+chez_barak = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
+
+chez_barak.formatted_address
+ => "1600 Pennsylvania Ave NW, Washington D.C., DC 20500, USA"
+
+chez_barak.city
+ => "Washington D.C."
+
+chez_barak.state_long_name
+ => "District of Columbia"
+
+chez_barak.state_short_name
+ => "DC"
 
 == Contributing to google_maps_geocoder
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
@@ -14,6 +28,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2011 Roderick Monje. See LICENSE.txt for
-further details.
-
+Copyright (c) 2011 Roderick Monje. See LICENSE.txt for further details.
