@@ -4,12 +4,26 @@ require 'net/http'
 require 'rack'
 
 class GoogleMapsGeocoder
-  # Macros =========================================================================================
-  attr_reader :city, :country_long_name, :country_short_name, :county, :formatted_address, :formatted_street_address, :lat, :lng, :postal_code, :state_long_name, :state_short_name
+  # Returns the complete formatted address with standardized abbreviations.
+  attr_reader :formatted_address
+  # Returns the formatted street address with standardized abbreviations.
+  attr_reader :formatted_street_address
+  # Self-explanatory
+  attr_reader :city, :country_long_name, :country_short_name, :county, :lat, :lng, :postal_code, :state_long_name, :state_short_name
 
   # Instance Methods: Overrides ====================================================================
 
   # Geocodes the specified address and wraps the results in a geocoder object.
+  #
+  # ==== Attributes
+  #
+  # * +address+ - a geocodable address
+  #
+  # ==== Examples
+  #
+  #    white_house = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
+  #    white_house.formatted_address
+  #     => "1600 Pennsylvania Ave NW, Washington D.C., DC 20500, USA"
   def initialize(address)
     response = Net::HTTP.get_response(URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(address)}&sensor=false"))
     @json = ActiveSupport::JSON.decode(response.body)
@@ -24,11 +38,23 @@ class GoogleMapsGeocoder
   # Instance Methods ===============================================================================
 
   # Returns true if the address Google returns is an exact match.
+  #
+  # ==== Examples
+  #
+  #    white_house = GoogleMapsGeocoder.new('1600 Pennsylvania Ave')
+  #    white_house.exact_match?
+  #     => true
   def exact_match?
     ! self.partial_match?
   end
 
   # Returns true if the address Google returns isn't an exact match.
+  #
+  # ==== Examples
+  #
+  #    white_house = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
+  #    white_house.exact_match?
+  #     => false
   def partial_match?
     @json['results'][0]['partial_match'] == true
   end
