@@ -1,4 +1,5 @@
 require 'active_support'
+require 'logger'
 require 'net/http'
 require 'rack'
 
@@ -14,7 +15,8 @@ class GoogleMapsGeocoder
     @json = ActiveSupport::JSON.decode(response.body)
     raise "Geocoding \"#{address}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
 
-    puts "Geocoded \"#{address}\" and Google returned...\n#{@json.inspect}"
+    logger = Logger.new(STDERR)
+    logger.info('GoogleMapsGeocoder') { "Geocoded \"#{address}\" and Google returned...\n#{@json.inspect}" }
 
     @city, @country_short_name, @country_long_name, @county, @formatted_address, @formatted_street_address, @lat, @lng, @postal_code, @state_long_name, @state_short_name = parse_city, parse_country_short_name, parse_country_long_name, parse_county, parse_formatted_address, parse_formatted_street_address, parse_lat, parse_lng, parse_postal_code, parse_state_long_name, parse_state_short_name
   end
