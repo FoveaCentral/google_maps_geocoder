@@ -1,6 +1,6 @@
 = google_maps_geocoder
 
-Simple PORO wrapper for a Google-Maps geocoding call.
+A simple PORO wrapper for geocoding with Google Maps.
 
 chez_barack = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
 

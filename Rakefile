@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "google_maps_geocoder"
   gem.homepage = "http://github.com/ivanoblomov/google_maps_geocoder"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A simple PORO wrapper for geocoding with Google Maps.}
+  gem.description = %Q{Geocode a location without worrying about parsing Google Maps' response. GoogleMapsGeocoder wraps it in a plain-old Ruby object.}
   gem.email = "rod@seologic.com"
   gem.authors = ["Roderick Monje"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
