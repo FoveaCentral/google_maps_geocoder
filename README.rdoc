@@ -16,6 +16,22 @@ chez_barack.state_long_name
 chez_barack.state_short_name
  => "DC"
 
+The complete, hopefully self-explanatory, API is:
+
+city
+country_long_name
+country_short_name
+county
+exact_match?
+formatted_address
+formatted_street_address
+lat
+lng
+partial_match?
+postal_code
+state_long_name
+state_short_name
+
 == Contributing to google_maps_geocoder
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
