@@ -45,13 +45,13 @@ describe GoogleMapsGeocoder do
 
     context 'address' do
       specify { subject.formatted_street_address.should == '1600 Pennsylvania Ave NW' }
-      specify { subject.city.should == 'Washington D.C.' }
+      specify { subject.city.should == 'Washington' }
       specify { subject.state_long_name.should == 'District of Columbia' }
       specify { subject.state_short_name.should == 'DC' }
       specify { subject.postal_code.should == '20500' }
       specify { subject.country_short_name.should == 'US' }
       specify { subject.country_long_name.should == 'United States' }
-      specify { subject.formatted_address.should == '1600 Pennsylvania Ave NW, Washington D.C., DC 20500, USA' }
+      specify { subject.formatted_address.should == '1600 Pennsylvania Ave NW, Washington, DC 20500, USA' }
    end
 
    context 'coordinates' do
