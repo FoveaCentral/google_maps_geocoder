@@ -24,10 +24,15 @@ class GoogleMapsGeocoder
   #    white_house = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
   #    white_house.formatted_address
   #     => "1600 Pennsylvania Ave NW, Washington D.C., DC 20500, USA"
-  def initialize(address)
-    response = Net::HTTP.get_response(URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(address)}&sensor=false"))
-    @json = ActiveSupport::JSON.decode(response.body)
-    raise "Geocoding \"#{address}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
+  def initialize data
+    if data.is_a? String
+      response = Net::HTTP.get_response(URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(data)}&sensor=false"))
+      @json = ActiveSupport::JSON.decode(response.body)
+      raise "Geocoding \"#{address}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
+    else
+      @json = data
+      address = data['formatted_address']
+    end
 
     logger = Logger.new(STDERR)
     logger.info('GoogleMapsGeocoder') { "Geocoded \"#{address}\" and Google returned...\n#{@json.inspect}" }

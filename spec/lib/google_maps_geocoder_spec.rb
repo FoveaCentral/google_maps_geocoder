@@ -27,10 +27,10 @@ describe GoogleMapsGeocoder do
       specify { subject.county.should == 'Kings' }
       specify { subject.state_long_name.should == 'New York' }
       specify { subject.state_short_name.should == 'NY' }
-      specify { subject.postal_code.should == '11215' }
+      specify { subject.postal_code.should =~ /1121[0-9]/ }
       specify { subject.country_short_name.should == 'US' }
       specify { subject.country_long_name.should == 'United States' }
-      specify { subject.formatted_address.should == '837 Union St, Brooklyn, NY 11215, USA' }
+      specify { subject.formatted_address.should =~ /837 Union St, Brooklyn, NY 1121[0-9], USA/ }
     end
 
     context 'coordinates' do
@@ -48,10 +48,10 @@ describe GoogleMapsGeocoder do
       specify { subject.city.should == 'Washington' }
       specify { subject.state_long_name.should == 'District of Columbia' }
       specify { subject.state_short_name.should == 'DC' }
-      specify { subject.postal_code.should == '20500' }
+      specify { subject.postal_code.should =~ /2050[0-9]/ }
       specify { subject.country_short_name.should == 'US' }
       specify { subject.country_long_name.should == 'United States' }
-      specify { subject.formatted_address.should == '1600 Pennsylvania Ave NW, Washington, DC 20500, USA' }
+      specify { subject.formatted_address.should =~ /1600 Pennsylvania Ave NW, Washington, DC 2050[0-9], USA/ }
    end
 
    context 'coordinates' do
