@@ -17,7 +17,7 @@ class GoogleMapsGeocoder
   #
   # ==== Attributes
   #
-  # * +address+ - a geocodable address
+  # * +data+ - a geocodable address
   #
   # ==== Examples
   #
@@ -28,7 +28,7 @@ class GoogleMapsGeocoder
     if data.is_a? String
       response = Net::HTTP.get_response(URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(data)}&sensor=false"))
       @json = ActiveSupport::JSON.decode(response.body)
-      raise "Geocoding \"#{address}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
+      raise "Geocoding \"#{data}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
     else
       @json = data
       address = data['formatted_address']
