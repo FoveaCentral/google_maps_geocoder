@@ -17,7 +17,7 @@ class GoogleMapsGeocoder
   #
   # ==== Attributes
   #
-  # * +address+ - a geocodable address
+  # * +data+ - a geocodable address
   #
   # ==== Examples
   #
@@ -28,14 +28,14 @@ class GoogleMapsGeocoder
     if data.is_a? String
       response = Net::HTTP.get_response(URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(data)}&sensor=false"))
       @json = ActiveSupport::JSON.decode(response.body)
-      raise "Geocoding \"#{address}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
+      raise "Geocoding \"#{data}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
     else
       @json = data
       address = data['formatted_address']
     end
 
     logger = Logger.new(STDERR)
-    logger.info('GoogleMapsGeocoder') { "Geocoded \"#{address}\" and Google returned...\n#{@json.inspect}" }
+    logger.info('GoogleMapsGeocoder') { "Geocoded \"#{data}\" and Google returned...\n#{@json.inspect}" }
 
     @city, @country_short_name, @country_long_name, @county, @formatted_address, @formatted_street_address, @lat, @lng, @postal_code, @state_long_name, @state_short_name = parse_city, parse_country_short_name, parse_country_long_name, parse_county, parse_formatted_address, parse_formatted_street_address, parse_lat, parse_lng, parse_postal_code, parse_state_long_name, parse_state_short_name
   end
