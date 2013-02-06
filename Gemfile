@@ -4,7 +4,5 @@ gem 'activesupport'
 gem 'rack'
 
 group :development do
-  gem 'jeweler'
-  gem 'rcov'
-  gem 'rspec'
+  gem 'rspec-rails'
 end
