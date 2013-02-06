@@ -3,10 +3,10 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe GoogleMapsGeocoder do
   before(:all) do
     begin
-      @exact_match = GoogleMapsGeocoder.new('837 Union St Brooklyn NY')
+      @exact_match   = GoogleMapsGeocoder.new('837 Union Street Brooklyn NY')
       @partial_match = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
     rescue SocketError
-      @no_network = true
+      @no_network  = true
     rescue RuntimeError
       @query_limit = true
     end
@@ -14,15 +14,15 @@ describe GoogleMapsGeocoder do
 
   before(:each) do
     pending 'waiting for a network connection', :if => @no_network
-    pending 'waiting for query limit to pass', :if => @query_limit
+    pending 'waiting for query limit to pass',  :if => @query_limit
   end
 
-  context 'with "837 Union St Brooklyn NY"' do
+  context 'with "837 Union Street Brooklyn NY"' do
     subject { @exact_match }
     specify { should be_exact_match }
 
     context 'address' do
-      specify { subject.formatted_street_address.should == '837 Union St' }
+      specify { subject.formatted_street_address.should == '837 Union Street' }
       specify { subject.city.should == 'Brooklyn' }
       specify { subject.county.should == 'Kings' }
       specify { subject.state_long_name.should == 'New York' }
@@ -30,7 +30,7 @@ describe GoogleMapsGeocoder do
       specify { subject.postal_code.should =~ /1121[0-9]/ }
       specify { subject.country_short_name.should == 'US' }
       specify { subject.country_long_name.should == 'United States' }
-      specify { subject.formatted_address.should =~ /837 Union St, Brooklyn, NY 1121[0-9], USA/ }
+      specify { subject.formatted_address.should =~ /837 Union Street, Brooklyn, NY 1121[0-9], USA/ }
     end
 
     context 'coordinates' do
@@ -44,14 +44,14 @@ describe GoogleMapsGeocoder do
     specify { should be_partial_match }
 
     context 'address' do
-      specify { subject.formatted_street_address.should == '1600 Pennsylvania Ave NW' }
+      specify { subject.formatted_street_address.should == '1600 Pennsylvania Avenue Northwest' }
       specify { subject.city.should == 'Washington' }
       specify { subject.state_long_name.should == 'District of Columbia' }
       specify { subject.state_short_name.should == 'DC' }
       specify { subject.postal_code.should =~ /2050[0-9]/ }
       specify { subject.country_short_name.should == 'US' }
       specify { subject.country_long_name.should == 'United States' }
-      specify { subject.formatted_address.should =~ /1600 Pennsylvania Ave NW, Washington, DC 2050[0-9], USA/ }
+      specify { subject.formatted_address.should =~ /1600 Pennsylvania Avenue Northwest, Washington, DC 2050[0-9], USA/ }
    end
 
    context 'coordinates' do
