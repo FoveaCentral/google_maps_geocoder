@@ -51,7 +51,7 @@ describe GoogleMapsGeocoder do
       specify { subject.postal_code.should =~ /2050[0-9]/ }
       specify { subject.country_short_name.should == 'US' }
       specify { subject.country_long_name.should == 'United States' }
-      specify { subject.formatted_address.should =~ /1600 Pennsylvania Avenue Northwest, Washington, DC 2050[0-9], USA/ }
+      specify { subject.formatted_address.should =~ /1600 Pennsylvania Avenue Northwest, President's Park, Washington, DC 2050[0-9], USA/ }
    end
 
    context 'coordinates' do
