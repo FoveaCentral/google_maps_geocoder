@@ -34,10 +34,10 @@ class GoogleMapsGeocoder
       address = data['formatted_address']
     end
 
-    logger = Logger.new(STDERR)
-    logger.info('GoogleMapsGeocoder') { "Geocoded \"#{data}\" and Google returned...\n#{@json.inspect}" }
-
     @city, @country_short_name, @country_long_name, @county, @formatted_address, @formatted_street_address, @lat, @lng, @postal_code, @state_long_name, @state_short_name = parse_city, parse_country_short_name, parse_country_long_name, parse_county, parse_formatted_address, parse_formatted_street_address, parse_lat, parse_lng, parse_postal_code, parse_state_long_name, parse_state_short_name
+
+    logger = Logger.new(STDERR)
+    logger.info('GoogleMapsGeocoder') { "Geocoded \"#{data}\" => \"#{self.formatted_address}\"" }
   end
 
   # Instance Methods ===============================================================================
