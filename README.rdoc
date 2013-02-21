@@ -5,10 +5,10 @@ A simple PORO wrapper for geocoding with Google Maps.
 chez_barack = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
 
 chez_barack.formatted_address
- => "1600 Pennsylvania Ave NW, Washington D.C., DC 20500, USA"
+ => "1600 Pennsylvania Avenue Northwest, President's Park, Washington, DC 20500, USA"
 
 chez_barack.city
- => "Washington D.C."
+ => "Washington"
 
 chez_barack.state_long_name
  => "District of Columbia"
@@ -18,19 +18,19 @@ chez_barack.state_short_name
 
 The complete, hopefully self-explanatory, API is:
 
-city
-country_long_name
-country_short_name
-county
-exact_match?
-formatted_address
-formatted_street_address
-lat
-lng
-partial_match?
-postal_code
-state_long_name
-state_short_name
+* city
+* country_long_name
+* country_short_name
+* county
+* exact_match?
+* formatted_address
+* formatted_street_address
+* lat
+* lng
+* partial_match?
+* postal_code
+* state_long_name
+* state_short_name
 
 == Contributing to google_maps_geocoder
 

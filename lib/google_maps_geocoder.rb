@@ -23,7 +23,7 @@ class GoogleMapsGeocoder
   #
   #    white_house = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
   #    white_house.formatted_address
-  #     => "1600 Pennsylvania Ave NW, Washington D.C., DC 20500, USA"
+  #     => "1600 Pennsylvania Avenue Northwest, President's Park, Washington, DC 20500, USA"
   def initialize data
     if data.is_a? String
       response = Net::HTTP.get_response(URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(data)}&sensor=false"))
