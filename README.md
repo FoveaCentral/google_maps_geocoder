@@ -16,19 +16,19 @@ Get the complete, formatted address:
 chez_barack.formatted_address
 ```
 
-Get the standardized name of the city:
+...standardized name of the city:
 
 ```ruby
 chez_barack.city
 ```
 
-Get the full name of the state or region:
+...full name of the state or region:
 
 ```ruby
 chez_barack.state_long_name
 ```
 
-Get the standard abbreviation for the state/region:
+...standard abbreviation for the state/region:
 
 ```ruby
 chez_barack.state_short_name
