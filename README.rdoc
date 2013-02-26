@@ -1,4 +1,4 @@
-= google_maps_geocoder
+= GoogleMapsGeocoder {<img src="https://secure.travis-ci.org/ivanoblomov/google_maps_geocoder.png"/>}[http://travis-ci.org/ivanoblomov/google_maps_geocoder]
 
 A simple PORO wrapper for geocoding with Google Maps.
 
