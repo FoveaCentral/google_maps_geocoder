@@ -25,18 +25,10 @@ class GoogleMapsGeocoder
   #    white_house.formatted_address
   #     => "1600 Pennsylvania Avenue Northwest, President's Park, Washington, DC 20500, USA"
   def initialize data
-    if data.is_a? String
-      response = Net::HTTP.get_response(URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(data)}&sensor=false"))
-      @json = ActiveSupport::JSON.decode(response.body)
-      raise "Geocoding \"#{data}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
-    else
-      @json = data
-      address = data['formatted_address']
-    end
-
-    @city, @country_short_name, @country_long_name, @county, @formatted_address, @formatted_street_address, @lat, @lng, @postal_code, @state_long_name, @state_short_name = parse_city, parse_country_short_name, parse_country_long_name, parse_county, parse_formatted_address, parse_formatted_street_address, parse_lat, parse_lng, parse_postal_code, parse_state_long_name, parse_state_short_name
-
-    logger = Logger.new(STDERR)
+    @json = data.is_a?(String) ? json_from_url(data) : data
+		raise "Geocoding \"#{data}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
+    set_attributes_from_json
+    logger = Logger.new STDERR
     logger.info('GoogleMapsGeocoder') { "Geocoded \"#{data}\" => \"#{self.formatted_address}\"" }
   end
 
@@ -65,6 +57,11 @@ class GoogleMapsGeocoder
   end
 
   private
+
+  def json_from_url url
+    response = Net::HTTP.get_response(URI.parse "http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(url)}&sensor=false")
+    ActiveSupport::JSON.decode response.body
+  end
 
   def parse_address_component_type(type, name='long_name')
     _address_component = @json['results'][0]['address_components'].detect{ |ac| ac['types'] && ac['types'].include?(type) }
@@ -113,5 +110,9 @@ class GoogleMapsGeocoder
 
   def parse_state_short_name
     parse_address_component_type('administrative_area_level_1', 'short_name')
+  end
+
+  def set_attributes_from_json
+    @city, @country_short_name, @country_long_name, @county, @formatted_address, @formatted_street_address, @lat, @lng, @postal_code, @state_long_name, @state_short_name = parse_city, parse_country_short_name, parse_country_long_name, parse_county, parse_formatted_address, parse_formatted_street_address, parse_lat, parse_lng, parse_postal_code, parse_state_long_name, parse_state_short_name
   end
 end
