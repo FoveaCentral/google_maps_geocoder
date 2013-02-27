@@ -2,13 +2,13 @@
 
 A simple PORO wrapper for geocoding with Google Maps.
 
-## Initialize in One Step
+## Ready to Go in One Step
 
 ```ruby
 chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Washington'
 ```
 
-## Examples
+## Usage
 
 Get the complete, formatted address:
 
