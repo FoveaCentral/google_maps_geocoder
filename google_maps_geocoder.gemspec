@@ -1,5 +1,4 @@
-require File.expand_path('../lib/version', __FILE__)
-
+require File.expand_path '../lib/version', __FILE__
 Gem::Specification.new do |s|
   s.name = "google_maps_geocoder"
   s.version = GoogleMapsGeocoder::VERSION.dup
@@ -15,8 +14,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'activesupport', '>= 0'
   s.add_runtime_dependency 'rack', '>= 0'
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{|f| File.basename(f)}
+  s.files         = `git ls-files`.split "\n"
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split "\n"
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{|f| File.basename f}
   s.require_paths = ["lib"]
 end
