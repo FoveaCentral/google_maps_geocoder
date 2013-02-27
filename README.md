@@ -1,4 +1,4 @@
-# GoogleMapsGeocoder [![Build Status](https://secure.travis-ci.org/ivanoblomov/google_maps_geocoder.png)](http://travis-ci.org/ivanoblomov/google_maps_geocoder)
+# GoogleMapsGeocoder [![Build Status](https://secure.travis-ci.org/ivanoblomov/google_maps_geocoder.png)](http://travis-ci.org/ivanoblomov/google_maps_geocoder) [![Dependency Status](https://gemnasium.com/ivanoblomov/google_maps_geocoder.png)](https://gemnasium.com/ivanoblomov/google_maps_geocoder)
 
 A simple PORO wrapper for geocoding with Google Maps.
 
