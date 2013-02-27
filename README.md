@@ -2,7 +2,7 @@
 
 A simple PORO wrapper for geocoding with Google Maps.
 
-== Installation
+## Installation
 
 In <b>Rails 3</b>, add this to your Gemfile and run the +bundle+ command.
 
