@@ -2,6 +2,20 @@
 
 A simple PORO wrapper for geocoding with Google Maps.
 
+== Installation
+
+In <b>Rails 3</b>, add this to your Gemfile and run the +bundle+ command.
+
+```ruby
+  gem 'google_maps_geocoder'
+```
+
+In <b>Rails 2</b>, add this to your environment.rb file.
+
+```ruby
+  config.gem 'google_maps_geocoder'
+```
+
 ## Ready to Go in One Step
 
 ```ruby
