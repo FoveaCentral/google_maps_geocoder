@@ -29,24 +29,28 @@ Get the complete, formatted address:
 
 ```ruby
 chez_barack.formatted_address
+ => "1600 Pennsylvania Avenue Northwest, President's Park, Washington, DC 20500, USA"
 ```
 
 ...standardized name of the city:
 
 ```ruby
 chez_barack.city
+ => "Washington"
 ```
 
 ...full name of the state or region:
 
 ```ruby
 chez_barack.state_long_name
+ => "District of Columbia"
 ```
 
 ...standard abbreviation for the state/region:
 
 ```ruby
 chez_barack.state_short_name
+ => "DC"
 ```
 
 ## API
