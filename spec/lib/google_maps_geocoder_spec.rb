@@ -24,13 +24,13 @@ describe GoogleMapsGeocoder do
     context 'address' do
       specify { subject.formatted_street_address.should == '837 Union Street' }
       specify { subject.city.should == 'Brooklyn' }
-      specify { subject.county.should == 'Kings' }
+      specify { subject.county.should =~ /Kings/ }
       specify { subject.state_long_name.should == 'New York' }
       specify { subject.state_short_name.should == 'NY' }
-      specify { subject.postal_code.should =~ /1121[0-9]/ }
+      specify { subject.postal_code.should =~ /112[0-9]{2}/ }
       specify { subject.country_short_name.should == 'US' }
       specify { subject.country_long_name.should == 'United States' }
-      specify { subject.formatted_address.should =~ /837 Union Street, Brooklyn, NY 1121[0-9], USA/ }
+      specify { subject.formatted_address.should =~ /837 Union Street, Brooklyn, NY 112[0-9]{2}, USA/ }
     end
 
     context 'coordinates' do
