@@ -28,8 +28,8 @@ class GoogleMapsGeocoder
     @json = data.is_a?(String) ? json_from_url(data) : data
 		raise "Geocoding \"#{data}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
     set_attributes_from_json
-    @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
-    @logger.info('GoogleMapsGeocoder') { "Geocoded \"#{data}\" => \"#{self.formatted_address}\"" }
+    logger = Logger.new STDERR
+    logger.info('GoogleMapsGeocoder') { "Geocoded \"#{data}\" => \"#{self.formatted_address}\"" }
   end
 
   # Instance Methods ===============================================================================
