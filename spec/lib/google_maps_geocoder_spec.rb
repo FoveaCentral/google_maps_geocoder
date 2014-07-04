@@ -13,8 +13,8 @@ describe GoogleMapsGeocoder do
   end
 
   before(:each) do
-    pending 'waiting for a network connection', :if => @no_network
-    pending 'waiting for query limit to pass',  :if => @query_limit
+    pending 'waiting for a network connection' if @no_network
+    pending 'waiting for query limit to pass' if @query_limit
   end
 
   context 'with "837 Union Street Brooklyn NY"' do
