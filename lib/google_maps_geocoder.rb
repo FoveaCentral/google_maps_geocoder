@@ -11,6 +11,8 @@ class GoogleMapsGeocoder
   # Self-explanatory
   attr_reader :city, :country_long_name, :country_short_name, :county, :lat, :lng, :postal_code, :state_long_name, :state_short_name
 
+  GOOGLE_API_URI = 'https://maps.googleapis.com/maps/api/geocode/json'
+
   # Instance Methods: Overrides ====================================================================
 
   # Geocodes the specified address and wraps the results in a geocoder object.
@@ -59,7 +61,12 @@ class GoogleMapsGeocoder
   private
 
   def json_from_url url
-    response = Net::HTTP.get_response(URI.parse "http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(url)}&sensor=false")
+    api_key = "&key=#{ENV['GOOGLE_API_TOKEN']}" if ENV['GOOGLE_API_TOKEN']
+    uri = URI.parse "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape(url)}&sensor=false#{api_key}"
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    response = http.request(Net::HTTP::Get.new(uri.request_uri))
     ActiveSupport::JSON.decode response.body
   end
 
