@@ -61,13 +61,9 @@ class GoogleMapsGeocoder
   private
 
   def json_from_url url
-    api_key = "&key=#{ENV['GOOGLE_API_TOKEN']}" if ENV['GOOGLE_API_TOKEN']
     uri = URI.parse "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape(url)}&sensor=false#{api_key}"
-    logger = Logger.new STDERR
-    logger.info('GoogleMapsGeocoder') { "URI: \"#{uri}\"" }
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    log_uri(uri)
+    http = obtain_http_connection
     response = http.request(Net::HTTP::Get.new(uri.request_uri))
     ActiveSupport::JSON.decode response.body
   end
@@ -123,5 +119,21 @@ class GoogleMapsGeocoder
 
   def set_attributes_from_json
     @city, @country_short_name, @country_long_name, @county, @formatted_address, @formatted_street_address, @lat, @lng, @postal_code, @state_long_name, @state_short_name = parse_city, parse_country_short_name, parse_country_long_name, parse_county, parse_formatted_address, parse_formatted_street_address, parse_lat, parse_lng, parse_postal_code, parse_state_long_name, parse_state_short_name
+  end
+
+  def api_key
+    "&key=#{ENV['GOOGLE_API_TOKEN']}" if ENV['GOOGLE_API_TOKEN']
+  end
+
+  def log_uri(uri)
+    logger = Logger.new STDERR
+    logger.info('GoogleMapsGeocoder') { "URI: \"#{uri}\"" }
+  end
+
+  def obtain_http_connection
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http
   end
 end
