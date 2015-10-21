@@ -63,7 +63,7 @@ class GoogleMapsGeocoder
   def json_from_url url
     uri = URI.parse "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape(url)}&sensor=false#{api_key}"
     log_uri(uri)
-    http = obtain_http_connection
+    http = obtain_http_connection(uri)
     response = http.request(Net::HTTP::Get.new(uri.request_uri))
     ActiveSupport::JSON.decode response.body
   end
@@ -130,7 +130,7 @@ class GoogleMapsGeocoder
     logger.info('GoogleMapsGeocoder') { "URI: \"#{uri}\"" }
   end
 
-  def obtain_http_connection
+  def obtain_http_connection(uri)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
