@@ -30,7 +30,7 @@ describe GoogleMapsGeocoder do
       it { expect(subject.postal_code).to match /112[0-9]{2}/ }
       it { expect(subject.country_short_name).to eq 'US' }
       it { expect(subject.country_long_name).to eq 'United States' }
-      it { expect(subject.formatted_address).to match /837 Union Street, Brooklyn, NY 112[0-9]{2}, USA/ }
+      it { expect(subject.formatted_address).to match /837 Union St, Brooklyn, NY 112[0-9]{2}, USA/ }
     end
 
     context 'coordinates' do
@@ -51,7 +51,7 @@ describe GoogleMapsGeocoder do
       it { expect(subject.postal_code).to match /2000[0-9]/ }
       it { expect(subject.country_short_name).to eq 'US' }
       it { expect(subject.country_long_name).to eq 'United States' }
-      it { expect(subject.formatted_address).to match(/1600 Pennsylvania Avenue Southeast, Washington, DC 2000[0-9], USA/) }
+      it { expect(subject.formatted_address).to match(/1600 Pennsylvania Ave SE, Washington, DC 20003, USA/) }
    end
 
    context 'coordinates' do
