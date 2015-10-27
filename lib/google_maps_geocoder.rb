@@ -43,7 +43,6 @@ class GoogleMapsGeocoder
     fail "Geocoding \"#{data}\" exceeded query limit! Google returned...\n"\
          "#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
     set_attributes_from_json
-    logger = Logger.new STDERR
     logger.info('GoogleMapsGeocoder') do
       "Geocoded \"#{data}\" => \"#{formatted_address}\""
     end
@@ -75,15 +74,30 @@ class GoogleMapsGeocoder
 
   private
 
+  def api_key
+    @api_key ||= "&key=#{ENV['GOOGLE_MAPS_API_KEY']}" if
+      ENV['GOOGLE_MAPS_API_KEY']
+  end
+
+  def http(uri)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http
+  end
+
   def json_from_url(url)
     uri = URI.parse(
       "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape(url)}&sensor=false"\
       "#{api_key}"
     )
-    log_uri(uri)
-    http = obtain_http_connection(uri)
-    response = http.request(Net::HTTP::Get.new(uri.request_uri))
+    logger.debug('GoogleMapsGeocoder') { uri }
+    response = http(uri).request(Net::HTTP::Get.new(uri.request_uri))
     ActiveSupport::JSON.decode response.body
+  end
+
+  def logger
+    @logger ||= Logger.new STDERR
   end
 
   def parse_address_component_type(type, name = 'long_name')
@@ -141,23 +155,7 @@ class GoogleMapsGeocoder
 
   def set_attributes_from_json
     ALL_ADDRESS_SEGMENTS.each do |segment|
-      instance_variable_set :"@#{segment}", eval("parse_#{segment}")
+      instance_variable_set :"@#{segment}", send("parse_#{segment}")
     end
-  end
-
-  def api_key
-    "&key=#{ENV['GOOGLE_MAPS_API_KEY']}" if ENV['GOOGLE_MAPS_API_KEY']
-  end
-
-  def log_uri(uri)
-    logger = Logger.new STDERR
-    logger.info('GoogleMapsGeocoder') { "URI: \"#{uri}\"" }
-  end
-
-  def obtain_http_connection(uri)
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    http
   end
 end
