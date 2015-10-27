@@ -79,7 +79,7 @@ The complete, hopefully self-explanatory, API is:
 To have GoogleMapsGeocoder use your Google Maps API key, set it as an environment variable:
 
 ```bash
-export GOOGLE_API_TOKEN=[your key]
+export GOOGLE_MAPS_API_KEY=[your key]
 ```
 
 ## Contributing to google_maps_geocoder

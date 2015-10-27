@@ -146,7 +146,7 @@ class GoogleMapsGeocoder
   end
 
   def api_key
-    "&key=#{ENV['GOOGLE_API_TOKEN']}" if ENV['GOOGLE_API_TOKEN']
+    "&key=#{ENV['GOOGLE_MAPS_API_KEY']}" if ENV['GOOGLE_MAPS_API_KEY']
   end
 
   def log_uri(uri)
