@@ -3,17 +3,28 @@ require 'logger'
 require 'net/http'
 require 'rack'
 
+# A simple PORO wrapper for geocoding with Google Maps.
 class GoogleMapsGeocoder
+  GOOGLE_ADDRESS_SEGMENTS = %i(
+    city country_long_name country_short_name county lat lng postal_code
+    state_long_name state_short_name
+  ).freeze
+  GOOGLE_API_URI = 'https://maps.googleapis.com/maps/api/geocode/json'.freeze
+
+  ALL_ADDRESS_SEGMENTS = (
+    GOOGLE_ADDRESS_SEGMENTS + %i(
+      formatted_address formatted_street_address
+    )
+  ).freeze
+
   # Returns the complete formatted address with standardized abbreviations.
   attr_reader :formatted_address
   # Returns the formatted street address with standardized abbreviations.
   attr_reader :formatted_street_address
   # Self-explanatory
-  attr_reader :city, :country_long_name, :country_short_name, :county, :lat, :lng, :postal_code, :state_long_name, :state_short_name
+  attr_reader(*GOOGLE_ADDRESS_SEGMENTS)
 
-  GOOGLE_API_URI = 'https://maps.googleapis.com/maps/api/geocode/json'
-
-  # Instance Methods: Overrides ====================================================================
+  # Instance Methods: Overrides ================================================
 
   # Geocodes the specified address and wraps the results in a geocoder object.
   #
@@ -25,16 +36,20 @@ class GoogleMapsGeocoder
   #
   #    white_house = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
   #    white_house.formatted_address
-  #     => "1600 Pennsylvania Avenue Northwest, President's Park, Washington, DC 20500, USA"
-  def initialize data
+  #     => "1600 Pennsylvania Avenue Northwest, President's Park,
+  #         Washington, DC 20500, USA"
+  def initialize(data)
     @json = data.is_a?(String) ? json_from_url(data) : data
-		raise "Geocoding \"#{data}\" exceeded query limit! Google returned...\n#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
+    fail "Geocoding \"#{data}\" exceeded query limit! Google returned...\n"\
+         "#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
     set_attributes_from_json
     logger = Logger.new STDERR
-    logger.info('GoogleMapsGeocoder') { "Geocoded \"#{data}\" => \"#{self.formatted_address}\"" }
+    logger.info('GoogleMapsGeocoder') do
+      "Geocoded \"#{data}\" => \"#{formatted_address}\""
+    end
   end
 
-  # Instance Methods ===============================================================================
+  # Instance Methods ===========================================================
 
   # Returns true if the address Google returns is an exact match.
   #
@@ -44,7 +59,7 @@ class GoogleMapsGeocoder
   #    white_house.exact_match?
   #     => true
   def exact_match?
-    ! self.partial_match?
+    !self.partial_match?
   end
 
   # Returns true if the address Google returns isn't an exact match.
@@ -60,21 +75,27 @@ class GoogleMapsGeocoder
 
   private
 
-  def json_from_url url
-    uri = URI.parse "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape(url)}&sensor=false#{api_key}"
+  def json_from_url(url)
+    uri = URI.parse(
+      "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape(url)}&sensor=false"\
+      "#{api_key}"
+    )
     log_uri(uri)
     http = obtain_http_connection(uri)
     response = http.request(Net::HTTP::Get.new(uri.request_uri))
     ActiveSupport::JSON.decode response.body
   end
 
-  def parse_address_component_type(type, name='long_name')
-    _address_component = @json['results'][0]['address_components'].detect{ |ac| ac['types'] && ac['types'].include?(type) }
-    _address_component && _address_component[name]
+  def parse_address_component_type(type, name = 'long_name')
+    address_component = @json['results'][0]['address_components'].detect do |ac|
+      ac['types'] && ac['types'].include?(type)
+    end
+    address_component && address_component[name]
   end
 
   def parse_city
-    parse_address_component_type('sublocality') || parse_address_component_type('locality')
+    parse_address_component_type('sublocality') ||
+      parse_address_component_type('locality')
   end
 
   def parse_country_long_name
@@ -94,7 +115,8 @@ class GoogleMapsGeocoder
   end
 
   def parse_formatted_street_address
-    "#{parse_address_component_type('street_number')} #{parse_address_component_type('route')}"
+    "#{parse_address_component_type('street_number')} "\
+    "#{parse_address_component_type('route')}"
   end
 
   def parse_lat
@@ -103,7 +125,7 @@ class GoogleMapsGeocoder
 
   def parse_lng
     @json['results'][0]['geometry']['location']['lng']
- end
+  end
 
   def parse_postal_code
     parse_address_component_type('postal_code')
@@ -118,7 +140,9 @@ class GoogleMapsGeocoder
   end
 
   def set_attributes_from_json
-    @city, @country_short_name, @country_long_name, @county, @formatted_address, @formatted_street_address, @lat, @lng, @postal_code, @state_long_name, @state_short_name = parse_city, parse_country_short_name, parse_country_long_name, parse_county, parse_formatted_address, parse_formatted_street_address, parse_lat, parse_lng, parse_postal_code, parse_state_long_name, parse_state_short_name
+    ALL_ADDRESS_SEGMENTS.each do |segment|
+      instance_variable_set :"@#{segment}", eval("parse_#{segment}")
+    end
   end
 
   def api_key
