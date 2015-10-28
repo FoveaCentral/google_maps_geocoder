@@ -19,7 +19,7 @@ Add GoogleMapsGeocoder to your Gemfile and run `bundle`:
 Or try it out in `irb` with:
 
 ```ruby
-  require './lib/google_maps_geocoder'
+  require './lib/google_maps_geocoder/google_maps_geocoder'
 ```
 
 ## Ready to Go in One Step
