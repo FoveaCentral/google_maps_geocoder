@@ -68,4 +68,17 @@ describe GoogleMapsGeocoder do
       it { expect(subject.lng).to be_within(0.005).of(-76.9818437) }
     end
   end
+
+  context "when ENV['GOOGLE_MAPS_API_KEY'] = 'INVALID_KEY'" do
+    before { ENV['GOOGLE_MAPS_API_KEY'] = 'INVALID_KEY' }
+
+    subject { @exact_match }
+
+    it do
+      expect(subject.send :query_url, nil).to eq(
+        'https://maps.googleapis.com/maps/api/geocode/json?address='\
+        '&sensor=false&key=INVALID_KEY'
+      )
+    end
+  end
 end

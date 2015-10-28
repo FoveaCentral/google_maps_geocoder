@@ -87,10 +87,7 @@ class GoogleMapsGeocoder
   end
 
   def json_from_url(url)
-    uri = URI.parse(
-      "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape(url)}&sensor=false"\
-      "#{api_key}"
-    )
+    uri = URI.parse query_url(url)
     logger.debug('GoogleMapsGeocoder') { uri }
     response = http(uri).request(Net::HTTP::Get.new(uri.request_uri))
     ActiveSupport::JSON.decode response.body
@@ -151,6 +148,11 @@ class GoogleMapsGeocoder
 
   def parse_state_short_name
     parse_address_component_type('administrative_area_level_1', 'short_name')
+  end
+
+  def query_url(query)
+    "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape query}&sensor=false"\
+    "#{api_key}"
   end
 
   def set_attributes_from_json
