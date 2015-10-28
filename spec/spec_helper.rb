@@ -1,7 +1,5 @@
 require 'coveralls'
 Coveralls.wear!
-require 'simplecov'
-SimpleCov.start
 require 'rubygems'
 require 'bundler'
 begin
