@@ -4,6 +4,10 @@ require 'net/http'
 require 'rack'
 
 # A simple PORO wrapper for geocoding with Google Maps.
+#
+# ==== Examples
+#
+#    chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
 class GoogleMapsGeocoder
   GOOGLE_ADDRESS_SEGMENTS = %i(
     city country_long_name country_short_name county lat lng postal_code
@@ -19,7 +23,18 @@ class GoogleMapsGeocoder
 
   # Returns the complete formatted address with standardized abbreviations.
   attr_reader :formatted_address
+  #
+  # ==== Examples
+  #
+  #    chez_barack.formatted_address
+  #     => "1600 Pennsylvania Avenue Northwest, President's Park,
+  #         Washington, DC 20500, USA"
   # Returns the formatted street address with standardized abbreviations.
+  #
+  # ==== Examples
+  #
+  #    chez_barack.formatted_street_address
+  #     => "1600 Pennsylvania Avenue"
   attr_reader :formatted_street_address
   # Self-explanatory
   attr_reader(*GOOGLE_ADDRESS_SEGMENTS)
@@ -34,10 +49,7 @@ class GoogleMapsGeocoder
   #
   # ==== Examples
   #
-  #    white_house = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
-  #    white_house.formatted_address
-  #     => "1600 Pennsylvania Avenue Northwest, President's Park,
-  #         Washington, DC 20500, USA"
+  #    chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
   def initialize(data)
     @json = data.is_a?(String) ? json_from_url(data) : data
     fail "Geocoding \"#{data}\" exceeded query limit! Google returned...\n"\
@@ -48,14 +60,11 @@ class GoogleMapsGeocoder
     end
   end
 
-  # Instance Methods ===========================================================
-
   # Returns true if the address Google returns is an exact match.
   #
   # ==== Examples
   #
-  #    white_house = GoogleMapsGeocoder.new('1600 Pennsylvania Ave')
-  #    white_house.exact_match?
+  #    chez_barack.exact_match?
   #     => true
   def exact_match?
     !self.partial_match?
@@ -65,9 +74,8 @@ class GoogleMapsGeocoder
   #
   # ==== Examples
   #
-  #    white_house = GoogleMapsGeocoder.new('1600 Pennsylvania Washington')
-  #    white_house.exact_match?
-  #     => false
+  #    GoogleMapsGeocoder.new('1600 Pennsylvania Washington').partial_match?
+  #     => true
   def partial_match?
     @json['results'][0]['partial_match'] == true
   end
