@@ -1,6 +1,7 @@
 # GoogleMapsGeocoder
 
 [![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](http://badge.fury.io/rb/google_maps_geocoder)
+[![Inch CI](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master&amp;style=flat)](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
 [![Code Climate](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder.png)](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder)
 [![Coverage Status](https://coveralls.io/repos/ivanoblomov/google_maps_geocoder/badge.svg?branch=master&service=github)](https://coveralls.io/github/ivanoblomov/google_maps_geocoder?branch=master)
 [![Build Status](https://secure.travis-ci.org/ivanoblomov/google_maps_geocoder.png)](http://travis-ci.org/ivanoblomov/google_maps_geocoder)
