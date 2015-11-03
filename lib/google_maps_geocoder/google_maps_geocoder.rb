@@ -22,13 +22,14 @@ class GoogleMapsGeocoder
   ).freeze
 
   # Returns the complete formatted address with standardized abbreviations.
-  attr_reader :formatted_address
   #
   # ==== Examples
   #
   #    chez_barack.formatted_address
   #     => "1600 Pennsylvania Avenue Northwest, President's Park,
   #         Washington, DC 20500, USA"
+  attr_reader :formatted_address
+
   # Returns the formatted street address with standardized abbreviations.
   #
   # ==== Examples
