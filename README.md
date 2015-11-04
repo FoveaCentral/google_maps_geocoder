@@ -63,19 +63,19 @@ chez_barack.state_short_name
 
 The complete, hopefully self-explanatory, API is:
 
-* city
-* country_long_name
-* country_short_name
-* county
-* exact_match?
-* formatted_address
-* formatted_street_address
-* lat
-* lng
-* partial_match?
-* postal_code
-* state_long_name
-* state_short_name
+* `GoogleMapsGeocoder#city`
+* `GoogleMapsGeocoder#country_long_name`
+* `GoogleMapsGeocoder#country_short_name`
+* `GoogleMapsGeocoder#county`
+* `GoogleMapsGeocoder#exact_match?`
+* `GoogleMapsGeocoder#formatted_address`
+* `GoogleMapsGeocoder#formatted_street_address`
+* `GoogleMapsGeocoder#lat`
+* `GoogleMapsGeocoder#lng`
+* `GoogleMapsGeocoder#partial_match?`
+* `GoogleMapsGeocoder#postal_code`
+* `GoogleMapsGeocoder#state_long_name`
+* `GoogleMapsGeocoder#state_short_name`
 
 ## Google Maps API Key (Optional)
 
