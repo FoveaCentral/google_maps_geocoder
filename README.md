@@ -7,7 +7,7 @@
 [![Inch CI](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master&amp;style=flat)](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
 [![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](http://badge.fury.io/rb/google_maps_geocoder)
 
-A simple PORO wrapper for geocoding with Google Maps.
+A simple Plain Old Ruby Object wrapper for geocoding with Google Maps.
 
 ## Installation
 
