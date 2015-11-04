@@ -5,9 +5,11 @@ require 'rack'
 
 # A simple PORO wrapper for geocoding with Google Maps.
 #
-# ==== Examples
-#
-#    chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
+# @example
+#   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
+#   chez_barack.formatted_address
+#     => "1600 Pennsylvania Avenue Northwest, President's Park,
+#         Washington, DC 20500, USA"
 class GoogleMapsGeocoder
   GOOGLE_ADDRESS_SEGMENTS = %i(
     city country_long_name country_short_name county lat lng postal_code
@@ -23,34 +25,31 @@ class GoogleMapsGeocoder
 
   # Returns the complete formatted address with standardized abbreviations.
   #
-  # ==== Examples
-  #
-  #    chez_barack.formatted_address
+  # @return [String] the complete formatted address
+  # @example
+  #   chez_barack.formatted_address
   #     => "1600 Pennsylvania Avenue Northwest, President's Park,
   #         Washington, DC 20500, USA"
   attr_reader :formatted_address
 
   # Returns the formatted street address with standardized abbreviations.
   #
-  # ==== Examples
-  #
-  #    chez_barack.formatted_street_address
+  # @return [String] the formatted street address
+  # @example
+  #   chez_barack.formatted_street_address
   #     => "1600 Pennsylvania Avenue"
   attr_reader :formatted_street_address
   # Self-explanatory
   attr_reader(*GOOGLE_ADDRESS_SEGMENTS)
 
-  # Instance Methods: Overrides ================================================
-
-  # Geocodes the specified address and wraps the results in a geocoder object.
+  # Geocodes the specified address and wraps the results in a GoogleMapsGeocoder
+  # object.
   #
-  # ==== Attributes
-  #
-  # * +data+ - a geocodable address
-  #
-  # ==== Examples
-  #
-  #    chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
+  # @param data [String] a geocodable address
+  # @return [GoogleMapsGeocoder] the Google Maps result for the specified
+  #   address
+  # @example
+  #   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
   def initialize(data)
     @json = data.is_a?(String) ? json_from_url(data) : data
     fail "Geocoding \"#{data}\" exceeded query limit! Google returned...\n"\
@@ -63,9 +62,9 @@ class GoogleMapsGeocoder
 
   # Returns true if the address Google returns is an exact match.
   #
-  # ==== Examples
-  #
-  #    chez_barack.exact_match?
+  # @return [boolean] whether the Google Maps result is an exact match
+  # @example
+  #   chez_barack.exact_match?
   #     => true
   def exact_match?
     !self.partial_match?
@@ -73,9 +72,9 @@ class GoogleMapsGeocoder
 
   # Returns true if the address Google returns isn't an exact match.
   #
-  # ==== Examples
-  #
-  #    GoogleMapsGeocoder.new('1600 Pennsylvania Washington').partial_match?
+  # @return [boolean] whether the Google Maps result is a partial match
+  # @example
+  #   GoogleMapsGeocoder.new('1600 Pennsylvania Washington').partial_match?
   #     => true
   def partial_match?
     @json['results'][0]['partial_match'] == true
