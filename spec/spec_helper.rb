@@ -2,6 +2,10 @@ require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 require 'coveralls'
 Coveralls.wear!
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  CodeClimate::TestReporter::Formatter,
+  Coveralls::SimpleCov::Formatter
+]
 require 'rubygems'
 require 'bundler'
 begin
