@@ -3,6 +3,8 @@ require 'logger'
 require 'net/http'
 require 'rack'
 
+require 'google_maps_geocoder/google_maps_geocoder_error_handler'
+
 # A simple PORO wrapper for geocoding with Google Maps.
 #
 # @example
@@ -52,8 +54,7 @@ class GoogleMapsGeocoder
   #   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
   def initialize(data)
     @json = data.is_a?(String) ? json_from_url(data) : data
-    fail "Geocoding \"#{data}\" exceeded query limit! Google returned...\n"\
-         "#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
+    handle_exception(@json)
     set_attributes_from_json
     logger.info('GoogleMapsGeocoder') do
       "Geocoded \"#{data}\" => \"#{formatted_address}\""
@@ -96,9 +97,26 @@ class GoogleMapsGeocoder
 
   def json_from_url(url)
     uri = URI.parse query_url(url)
+
     logger.debug('GoogleMapsGeocoder') { uri }
+
     response = http(uri).request(Net::HTTP::Get.new(uri.request_uri))
     ActiveSupport::JSON.decode response.body
+  end
+
+  def handle_exception(google_response_json)
+    status = google_response_json['status']
+    # no exception
+    return if status == 'OK'
+
+    message = GoogleMapsGeocoderErrorHandler::GeneralGoecodingError\
+              .new(google_response_json).message
+
+    # for status codes see https://developers.google.com/maps/documentation/geocoding/intro#StatusCodes
+    raise GoogleMapsGeocoderErrorHandler::ZeroResultsError,\
+          message if status == 'ZERO_RESULTS'
+    raise GoogleMapsGeocoderErrorHandler::QueryLimitError,\
+          message if status == 'OVER_QUERY_LIMIT'
   end
 
   def logger
