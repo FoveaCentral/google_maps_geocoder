@@ -1,9 +1,8 @@
 require 'active_support'
+require 'active_support/core_ext/string/inflections'
 require 'logger'
 require 'net/http'
 require 'rack'
-
-require 'google_maps_geocoder/google_maps_geocoder_error_handler'
 
 # A simple PORO wrapper for geocoding with Google Maps.
 #
@@ -12,7 +11,33 @@ require 'google_maps_geocoder/google_maps_geocoder_error_handler'
 #   chez_barack.formatted_address
 #     => "1600 Pennsylvania Avenue Northwest, President's Park,
 #         Washington, DC 20500, USA"
+# rubocop:disable Metrics/ClassLength
 class GoogleMapsGeocoder
+  # Error handling for google statuses
+  class GeocodingError < StandardError
+    def initialize(response_json = '')
+      @json = response_json
+      super
+    end
+
+    def message
+      "Google returned:\n#{@json.inspect}"
+    end
+  end
+
+  class ZeroResultsError < GeocodingError; end
+  class QueryLimitError < GeocodingError; end
+  class ReqestDeniedError < GeocodingError; end
+  class InvalidRequestError < GeocodingError; end
+  class UnknownError < GeocodingError; end
+
+  ERROR_STATUSES = { zero_results: 'ZERO_RESULTS',
+                     query_limit: 'OVER_QUERY_LIMIT',
+                     request_denied: 'REQUEST_DENIED',
+                     invalid_request: 'INVALID_REQUEST',
+                     unknown: 'UNKNOWN_ERROR'
+                   }.freeze
+
   GOOGLE_ADDRESS_SEGMENTS = %i(
     city country_long_name country_short_name county lat lng postal_code
     state_long_name state_short_name
@@ -54,7 +79,7 @@ class GoogleMapsGeocoder
   #   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
   def initialize(data)
     @json = data.is_a?(String) ? json_from_url(data) : data
-    handle_exception(@json)
+    handle_error if @json.blank? || @json['status'] != 'OK'
     set_attributes_from_json
     logger.info('GoogleMapsGeocoder') do
       "Geocoded \"#{data}\" => \"#{formatted_address}\""
@@ -104,19 +129,16 @@ class GoogleMapsGeocoder
     ActiveSupport::JSON.decode response.body
   end
 
-  def handle_exception(google_response_json)
-    status = google_response_json['status']
-    # no exception
-    return if status == 'OK'
-
-    message = GoogleMapsGeocoderErrorHandler::GeneralGoecodingError\
-              .new(google_response_json).message
+  def handle_error
+    status = @json['status']
+    message = GeocodingError.new(@json).message
 
     # for status codes see https://developers.google.com/maps/documentation/geocoding/intro#StatusCodes
-    raise GoogleMapsGeocoderErrorHandler::ZeroResultsError,\
-          message if status == 'ZERO_RESULTS'
-    raise GoogleMapsGeocoderErrorHandler::QueryLimitError,\
-          message if status == 'OVER_QUERY_LIMIT'
+    ERROR_STATUSES.each do |key, value|
+      if status == value
+        raise "google_maps_geocoder/#{key}_error".classify.constantize, message
+      end
+    end
   end
 
   def logger

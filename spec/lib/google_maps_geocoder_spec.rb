@@ -91,7 +91,7 @@ describe GoogleMapsGeocoder do
         .and_return empty_result
 
       expect { GoogleMapsGeocoder.new('anything') }.to \
-        raise_error(GoogleMapsGeocoderErrorHandler::ZeroResultsError)
+        raise_error(GoogleMapsGeocoder::ZeroResultsError)
     end
 
     it 'raises an error if we have qery limit exceed' do
@@ -99,7 +99,7 @@ describe GoogleMapsGeocoder do
         .and_return limit_result
 
       expect { GoogleMapsGeocoder.new('anything') }.to \
-        raise_error(GoogleMapsGeocoderErrorHandler::QueryLimitError)
+        raise_error(GoogleMapsGeocoder::QueryLimitError)
     end
   end
 end
