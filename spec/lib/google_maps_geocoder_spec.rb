@@ -83,23 +83,16 @@ describe GoogleMapsGeocoder do
   end
 
   context 'with google returns empty results' do
-    let(:empty_result) { { 'results' => [], 'status' => 'ZERO_RESULTS' } }
-    let(:limit_result) { { 'results' => [], 'status' => 'OVER_QUERY_LIMIT' } }
+    let(:results_hash) { { 'results' => [] } }
 
-    it 'raises an error if we have empty results' do
-      allow_any_instance_of(GoogleMapsGeocoder).to receive(:json_from_url)\
-        .and_return empty_result
+    GoogleMapsGeocoder::ERROR_STATUSES.each do |key, value|
+      it "raises #{key} error" do
+        allow_any_instance_of(GoogleMapsGeocoder).to receive(:json_from_url)\
+          .and_return results_hash.merge('status' => value)
 
-      expect { GoogleMapsGeocoder.new('anything') }.to \
-        raise_error(GoogleMapsGeocoder::ZeroResultsError)
-    end
-
-    it 'raises an error if we have qery limit exceed' do
-      allow_any_instance_of(GoogleMapsGeocoder).to receive(:json_from_url)\
-        .and_return limit_result
-
-      expect { GoogleMapsGeocoder.new('anything') }.to \
-        raise_error(GoogleMapsGeocoder::QueryLimitError)
+        expect { GoogleMapsGeocoder.new('anything') }.to \
+          raise_error(GoogleMapsGeocoder.error_class_name(key))
+      end
     end
   end
 end

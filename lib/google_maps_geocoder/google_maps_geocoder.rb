@@ -27,7 +27,7 @@ class GoogleMapsGeocoder
 
   class ZeroResultsError < GeocodingError; end
   class QueryLimitError < GeocodingError; end
-  class ReqestDeniedError < GeocodingError; end
+  class RequestDeniedError < GeocodingError; end
   class InvalidRequestError < GeocodingError; end
   class UnknownError < GeocodingError; end
 
@@ -93,7 +93,7 @@ class GoogleMapsGeocoder
   #   chez_barack.exact_match?
   #     => true
   def exact_match?
-    !self.partial_match?
+    !partial_match?
   end
 
   # Returns true if the address Google returns isn't an exact match.
@@ -104,6 +104,10 @@ class GoogleMapsGeocoder
   #     => true
   def partial_match?
     @json['results'][0]['partial_match'] == true
+  end
+
+  def self.error_class_name(key)
+    "google_maps_geocoder/#{key}_error".classify.constantize
   end
 
   private
@@ -135,9 +139,7 @@ class GoogleMapsGeocoder
 
     # for status codes see https://developers.google.com/maps/documentation/geocoding/intro#StatusCodes
     ERROR_STATUSES.each do |key, value|
-      if status == value
-        raise "google_maps_geocoder/#{key}_error".classify.constantize, message
-      end
+      raise GoogleMapsGeocoder.error_class_name(key), message if status == value
     end
   end
 
