@@ -75,7 +75,7 @@ describe GoogleMapsGeocoder do
     subject { @exact_match }
 
     it do
-      expect(subject.send :query_url, nil).to eq(
+      expect(subject.send(:query_url, nil)).to eq(
         'https://maps.googleapis.com/maps/api/geocode/json?address='\
         '&sensor=false&key=INVALID_KEY'
       )
