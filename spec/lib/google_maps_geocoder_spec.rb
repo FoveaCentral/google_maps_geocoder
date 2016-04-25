@@ -75,10 +75,24 @@ describe GoogleMapsGeocoder do
     subject { @exact_match }
 
     it do
-      expect(subject.send :query_url, nil).to eq(
+      expect(subject.send(:query_url, nil)).to eq(
         'https://maps.googleapis.com/maps/api/geocode/json?address='\
         '&sensor=false&key=INVALID_KEY'
       )
+    end
+  end
+
+  context 'with google returns empty results' do
+    let(:results_hash) { { 'results' => [] } }
+
+    GoogleMapsGeocoder::ERROR_STATUSES.each do |key, value|
+      it "raises #{key} error" do
+        allow_any_instance_of(GoogleMapsGeocoder).to receive(:json_from_url)\
+          .and_return results_hash.merge('status' => value)
+
+        expect { GoogleMapsGeocoder.new('anything') }.to \
+          raise_error(GoogleMapsGeocoder.error_class_name(key))
+      end
     end
   end
 end

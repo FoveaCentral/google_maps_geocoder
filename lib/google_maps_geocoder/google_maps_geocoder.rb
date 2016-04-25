@@ -1,4 +1,5 @@
 require 'active_support'
+require 'active_support/core_ext/string/inflections'
 require 'logger'
 require 'net/http'
 require 'rack'
@@ -10,7 +11,33 @@ require 'rack'
 #   chez_barack.formatted_address
 #     => "1600 Pennsylvania Avenue Northwest, President's Park,
 #         Washington, DC 20500, USA"
+# rubocop:disable Metrics/ClassLength
 class GoogleMapsGeocoder
+  # Error handling for google statuses
+  class GeocodingError < StandardError
+    def initialize(response_json = '')
+      @json = response_json
+      super
+    end
+
+    def message
+      "Google returned:\n#{@json.inspect}"
+    end
+  end
+
+  class ZeroResultsError < GeocodingError; end
+  class QueryLimitError < GeocodingError; end
+  class RequestDeniedError < GeocodingError; end
+  class InvalidRequestError < GeocodingError; end
+  class UnknownError < GeocodingError; end
+
+  ERROR_STATUSES = { zero_results: 'ZERO_RESULTS',
+                     query_limit: 'OVER_QUERY_LIMIT',
+                     request_denied: 'REQUEST_DENIED',
+                     invalid_request: 'INVALID_REQUEST',
+                     unknown: 'UNKNOWN_ERROR'
+                   }.freeze
+
   GOOGLE_ADDRESS_SEGMENTS = %i(
     city country_long_name country_short_name county lat lng postal_code
     state_long_name state_short_name
@@ -52,8 +79,7 @@ class GoogleMapsGeocoder
   #   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
   def initialize(data)
     @json = data.is_a?(String) ? json_from_url(data) : data
-    fail "Geocoding \"#{data}\" exceeded query limit! Google returned...\n"\
-         "#{@json.inspect}" if @json.blank? || @json['status'] != 'OK'
+    handle_error if @json.blank? || @json['status'] != 'OK'
     set_attributes_from_json
     logger.info('GoogleMapsGeocoder') do
       "Geocoded \"#{data}\" => \"#{formatted_address}\""
@@ -67,7 +93,7 @@ class GoogleMapsGeocoder
   #   chez_barack.exact_match?
   #     => true
   def exact_match?
-    !self.partial_match?
+    !partial_match?
   end
 
   # Returns true if the address Google returns isn't an exact match.
@@ -78,6 +104,10 @@ class GoogleMapsGeocoder
   #     => true
   def partial_match?
     @json['results'][0]['partial_match'] == true
+  end
+
+  def self.error_class_name(key)
+    "google_maps_geocoder/#{key}_error".classify.constantize
   end
 
   private
@@ -96,9 +126,21 @@ class GoogleMapsGeocoder
 
   def json_from_url(url)
     uri = URI.parse query_url(url)
+
     logger.debug('GoogleMapsGeocoder') { uri }
+
     response = http(uri).request(Net::HTTP::Get.new(uri.request_uri))
     ActiveSupport::JSON.decode response.body
+  end
+
+  def handle_error
+    status = @json['status']
+    message = GeocodingError.new(@json).message
+
+    # for status codes see https://developers.google.com/maps/documentation/geocoding/intro#StatusCodes
+    ERROR_STATUSES.each do |key, value|
+      raise GoogleMapsGeocoder.error_class_name(key), message if status == value
+    end
   end
 
   def logger
