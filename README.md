@@ -97,4 +97,4 @@ export GOOGLE_MAPS_API_KEY=[your key]
 
 ## Copyright
 
-Copyright (c) 2011 Roderick Monje. See LICENSE.txt for further details.
+Copyright © 2011-2017 Roderick Monje. See LICENSE.txt for further details.
