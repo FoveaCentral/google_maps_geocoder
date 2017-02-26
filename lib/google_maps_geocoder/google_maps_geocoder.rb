@@ -41,8 +41,7 @@ class GoogleMapsGeocoder
                      query_limit: 'OVER_QUERY_LIMIT',
                      request_denied: 'REQUEST_DENIED',
                      invalid_request: 'INVALID_REQUEST',
-                     unknown: 'UNKNOWN_ERROR'
-                   }.freeze
+                     unknown: 'UNKNOWN_ERROR' }.freeze
 
   GOOGLE_ADDRESS_SEGMENTS = %i(
     city country_long_name country_short_name county lat lng postal_code

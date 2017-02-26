@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-
+# rubocop:disable Metrics/BlockLength
 describe GoogleMapsGeocoder do
   before(:all) do
     begin
@@ -19,6 +19,7 @@ describe GoogleMapsGeocoder do
 
   context 'with "837 Union Street Brooklyn NY"' do
     subject { @exact_match }
+
     it { expect(subject).to be_exact_match }
 
     context 'address' do
@@ -35,7 +36,6 @@ describe GoogleMapsGeocoder do
           .to match(/837 Union St, Brooklyn, NY 112[0-9]{2}, USA/)
       end
     end
-
     context 'coordinates' do
       it { expect(subject.lat).to be_within(0.005).of(40.6748151) }
       it { expect(subject.lng).to be_within(0.005).of(-73.9760302) }
@@ -44,6 +44,7 @@ describe GoogleMapsGeocoder do
 
   context 'with "1600 Pennsylvania Washington"' do
     subject { @partial_match }
+
     it { should be_partial_match }
 
     context 'address' do
@@ -62,7 +63,6 @@ describe GoogleMapsGeocoder do
           .to match(/1600 Pennsylvania Ave SE, Washington, DC 20003, USA/)
       end
     end
-
     context 'coordinates' do
       it { expect(subject.lat).to be_within(0.005).of(38.8791981) }
       it { expect(subject.lng).to be_within(0.005).of(-76.9818437) }
@@ -89,7 +89,6 @@ describe GoogleMapsGeocoder do
       it "raises #{key} error" do
         allow_any_instance_of(GoogleMapsGeocoder).to receive(:json_from_url)
           .and_return results_hash.merge('status' => value)
-
         expect { GoogleMapsGeocoder.new('anything') }
           .to raise_error(GoogleMapsGeocoder.send(:error_class_name, key))
       end
