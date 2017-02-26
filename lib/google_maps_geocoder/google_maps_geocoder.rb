@@ -112,11 +112,12 @@ class GoogleMapsGeocoder
     @json['results'][0]['partial_match'] == true
   end
 
+  private
+
   def self.error_class_name(key)
     "google_maps_geocoder/#{key}_error".classify.constantize
   end
-
-  private
+  private_class_method :error_class_name
 
   def api_key
     @api_key ||= "&key=#{ENV['GOOGLE_MAPS_API_KEY']}" if
@@ -145,7 +146,8 @@ class GoogleMapsGeocoder
 
     # for status codes see https://developers.google.com/maps/documentation/geocoding/intro#StatusCodes
     ERROR_STATUSES.each do |key, value|
-      raise GoogleMapsGeocoder.error_class_name(key), message if status == value
+      next unless status == value
+      raise GoogleMapsGeocoder.send(:error_class_name, key), message
     end
   end
 

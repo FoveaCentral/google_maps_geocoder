@@ -87,11 +87,11 @@ describe GoogleMapsGeocoder do
 
     GoogleMapsGeocoder::ERROR_STATUSES.each do |key, value|
       it "raises #{key} error" do
-        allow_any_instance_of(GoogleMapsGeocoder).to receive(:json_from_url)\
+        allow_any_instance_of(GoogleMapsGeocoder).to receive(:json_from_url)
           .and_return results_hash.merge('status' => value)
 
-        expect { GoogleMapsGeocoder.new('anything') }.to \
-          raise_error(GoogleMapsGeocoder.error_class_name(key))
+        expect { GoogleMapsGeocoder.new('anything') }
+          .to raise_error(GoogleMapsGeocoder.send(:error_class_name, key))
       end
     end
   end
