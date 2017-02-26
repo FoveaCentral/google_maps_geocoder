@@ -15,6 +15,9 @@ require 'rack'
 class GoogleMapsGeocoder
   # Error handling for google statuses
   class GeocodingError < StandardError
+    # Initialize an error class wrapping the error returned by Google Maps.
+    #
+    # @return [GeocodingError] the geocoding error
     def initialize(response_json = '')
       @json = response_json
       super
