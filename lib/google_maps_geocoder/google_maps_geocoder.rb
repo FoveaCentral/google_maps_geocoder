@@ -15,11 +15,17 @@ require 'rack'
 class GoogleMapsGeocoder
   # Error handling for google statuses
   class GeocodingError < StandardError
+    # Initialize an error class wrapping the error returned by Google Maps.
+    #
+    # @return [GeocodingError] the geocoding error
     def initialize(response_json = '')
       @json = response_json
       super
     end
 
+    # Returns the GeocodingError's content.
+    #
+    # @return [String] the geocoding error's content
     def message
       "Google returned:\n#{@json.inspect}"
     end
@@ -35,8 +41,7 @@ class GoogleMapsGeocoder
                      query_limit: 'OVER_QUERY_LIMIT',
                      request_denied: 'REQUEST_DENIED',
                      invalid_request: 'INVALID_REQUEST',
-                     unknown: 'UNKNOWN_ERROR'
-                   }.freeze
+                     unknown: 'UNKNOWN_ERROR' }.freeze
 
   GOOGLE_ADDRESS_SEGMENTS = %i(
     city country_long_name country_short_name county lat lng postal_code
@@ -106,11 +111,12 @@ class GoogleMapsGeocoder
     @json['results'][0]['partial_match'] == true
   end
 
+  private
+
   def self.error_class_name(key)
     "google_maps_geocoder/#{key}_error".classify.constantize
   end
-
-  private
+  private_class_method :error_class_name
 
   def api_key
     @api_key ||= "&key=#{ENV['GOOGLE_MAPS_API_KEY']}" if
@@ -139,7 +145,8 @@ class GoogleMapsGeocoder
 
     # for status codes see https://developers.google.com/maps/documentation/geocoding/intro#StatusCodes
     ERROR_STATUSES.each do |key, value|
-      raise GoogleMapsGeocoder.error_class_name(key), message if status == value
+      next unless status == value
+      raise GoogleMapsGeocoder.send(:error_class_name, key), message
     end
   end
 
