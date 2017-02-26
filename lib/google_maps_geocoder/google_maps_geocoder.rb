@@ -23,6 +23,9 @@ class GoogleMapsGeocoder
       super
     end
 
+    # Returns the GeocodingError's content.
+    #
+    # @return [String] the geocoding error's content
     def message
       "Google returned:\n#{@json.inspect}"
     end
