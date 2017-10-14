@@ -43,16 +43,16 @@ class GoogleMapsGeocoder
                      invalid_request: 'INVALID_REQUEST',
                      unknown: 'UNKNOWN_ERROR' }.freeze
 
-  GOOGLE_ADDRESS_SEGMENTS = %i(
+  GOOGLE_ADDRESS_SEGMENTS = %i[
     city country_long_name country_short_name county lat lng postal_code
     state_long_name state_short_name
-  ).freeze
+  ].freeze
   GOOGLE_API_URI = 'https://maps.googleapis.com/maps/api/geocode/json'.freeze
 
   ALL_ADDRESS_SEGMENTS = (
-    GOOGLE_ADDRESS_SEGMENTS + %i(
+    GOOGLE_ADDRESS_SEGMENTS + %i[
       formatted_address formatted_street_address
-    )
+    ]
   ).freeze
 
   # Returns the complete formatted address with standardized abbreviations.
