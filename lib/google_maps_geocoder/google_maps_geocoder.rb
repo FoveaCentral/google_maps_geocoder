@@ -27,7 +27,7 @@ class GoogleMapsGeocoder
     #
     # @param json [Hash] Google Maps' JSON response
     # @return [GeocodingError] the geocoding error
-    def initialize(json = '')
+    def initialize(json = {})
       @json = json
       super @json['status']
     end
