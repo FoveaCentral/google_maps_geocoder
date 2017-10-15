@@ -37,7 +37,7 @@ class GoogleMapsGeocoder
     city country_long_name country_short_name county lat lng postal_code
     state_long_name state_short_name
   ].freeze
-  GOOGLE_API_URI = 'https://maps.googleapis.com/maps/api/geocode/json'.freeze
+  GOOGLE_MAPS_API = 'https://maps.googleapis.com/maps/api/geocode/json'.freeze
 
   ALL_ADDRESS_SEGMENTS = (
     GOOGLE_ADDRESS_SEGMENTS + %i[formatted_address formatted_street_address]
@@ -101,9 +101,20 @@ class GoogleMapsGeocoder
 
   private
 
-  def api_key
-    @api_key ||= "&key=#{ENV['GOOGLE_MAPS_API_KEY']}" if
+  def google_maps_api_key
+    @google_maps_api_key ||= "&key=#{ENV['GOOGLE_MAPS_API_KEY']}" if
       ENV['GOOGLE_MAPS_API_KEY']
+  end
+
+  def google_maps_request(query)
+    "#{GOOGLE_MAPS_API}?address=#{Rack::Utils.escape query}&sensor=false"\
+    "#{google_maps_api_key}"
+  end
+
+  def google_maps_response(address)
+    uri = URI.parse google_maps_request(address)
+    response = http(uri).request(Net::HTTP::Get.new(uri.request_uri))
+    ActiveSupport::JSON.decode response.body
   end
 
   def http(uri)
@@ -111,17 +122,6 @@ class GoogleMapsGeocoder
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     http
-  end
-
-  def google_maps_request(query)
-    "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape query}&sensor=false"\
-    "#{api_key}"
-  end
-
-  def google_maps_response(address)
-    uri = URI.parse google_maps_request(address)
-    response = http(uri).request(Net::HTTP::Get.new(uri.request_uri))
-    ActiveSupport::JSON.decode response.body
   end
 
   def logger
