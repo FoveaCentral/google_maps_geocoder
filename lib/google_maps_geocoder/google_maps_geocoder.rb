@@ -65,17 +65,17 @@ class GoogleMapsGeocoder
   # Geocodes the specified address and wraps the results in a GoogleMapsGeocoder
   # object.
   #
-  # @param data [String] a geocodable address
+  # @param address [String] a geocodable address
   # @return [GoogleMapsGeocoder] the Google Maps result for the specified
   #   address
   # @example
   #   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Ave'
-  def initialize(data)
-    @json = data.is_a?(String) ? json_from_url(data) : data
+  def initialize(address)
+    @json = address.is_a?(String) ? google_maps_response(address) : address
     raise GeocodingError, @json if @json.blank? || @json['status'] != 'OK'
     set_attributes_from_json
     logger.info('GoogleMapsGeocoder') do
-      "Geocoded \"#{data}\" => \"#{formatted_address}\""
+      "Geocoded \"#{address}\" => \"#{formatted_address}\""
     end
   end
 
@@ -113,8 +113,13 @@ class GoogleMapsGeocoder
     http
   end
 
-  def json_from_url(url)
-    uri = URI.parse query_url(url)
+  def google_maps_request(query)
+    "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape query}&sensor=false"\
+    "#{api_key}"
+  end
+
+  def google_maps_response(address)
+    uri = URI.parse google_maps_request(address)
     response = http(uri).request(Net::HTTP::Get.new(uri.request_uri))
     ActiveSupport::JSON.decode response.body
   end
@@ -174,11 +179,6 @@ class GoogleMapsGeocoder
 
   def parse_state_short_name
     parse_address_component_type('administrative_area_level_1', 'short_name')
-  end
-
-  def query_url(query)
-    "#{GOOGLE_API_URI}?address=#{Rack::Utils.escape query}&sensor=false"\
-    "#{api_key}"
   end
 
   def set_attributes_from_json
