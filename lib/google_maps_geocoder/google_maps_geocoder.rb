@@ -17,6 +17,7 @@ class GoogleMapsGeocoder
   class GeocodingError < StandardError
     # Initialize an error class wrapping the error returned by Google Maps.
     #
+    # @param response_json [String] Google Maps' JSON response
     # @return [GeocodingError] the geocoding error
     def initialize(response_json = '')
       @json = response_json
