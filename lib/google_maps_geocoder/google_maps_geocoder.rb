@@ -106,8 +106,8 @@ class GoogleMapsGeocoder
       ENV['GOOGLE_MAPS_API_KEY']
   end
 
-  def google_maps_request(query)
-    "#{GOOGLE_MAPS_API}?address=#{Rack::Utils.escape query}&sensor=false"\
+  def google_maps_request(address)
+    "#{GOOGLE_MAPS_API}?address=#{Rack::Utils.escape address}&sensor=false"\
     "#{google_maps_api_key}"
   end
 
