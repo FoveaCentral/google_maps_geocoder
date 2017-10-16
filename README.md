@@ -27,7 +27,7 @@ Or try it out in `irb` with:
 ## Ready to Go in One Step
 
 ```ruby
-chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania Washington'
+chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania DC'
 ```
 
 ## Usage
