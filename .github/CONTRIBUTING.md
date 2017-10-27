@@ -15,10 +15,8 @@
 
 2. **Confirm your last build passes** on [Travis CI](https://travis-ci.org/ivanoblomov/google_maps_geocoder/branches).
 
-3. Make sure the inline [YARD documentation](http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md) is up to date.
+3. **Update the inline [YARD documentation](http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md).**
 
-4. **Open a new GitHub pull request** with the patch or feature.
-
-5. **Ensure the PR description clearly describes** the problem and solution or new feature. Include the relevant issue number if applicable.
+4. **Open a new GitHub pull request** with the patch or feature. Follow the template's directions.
 
 ## Thanks for contributing!
