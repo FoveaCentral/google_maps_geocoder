@@ -2,9 +2,9 @@ require 'simplecov'
 SimpleCov.start
 require 'coveralls'
 Coveralls.wear!
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
   Coveralls::SimpleCov::Formatter
-]
+)
 require 'rubygems'
 require 'bundler'
 begin
