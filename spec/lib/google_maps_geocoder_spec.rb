@@ -77,21 +77,5 @@ describe GoogleMapsGeocoder do
       end
     end
   end
-  describe '#google_maps_request' do
-    context "when ENV['GOOGLE_MAPS_API_KEY'] = 'MY_API_KEY'" do
-      before { ENV['GOOGLE_MAPS_API_KEY'] = 'MY_API_KEY' }
-
-      after { ENV['GOOGLE_MAPS_API_KEY'] = nil }
-
-      subject { @exact_match }
-
-      it do
-        expect(subject.send(:google_maps_request, nil)).to eq(
-          'https://maps.googleapis.com/maps/api/geocode/json?address='\
-          '&sensor=false&key=MY_API_KEY'
-        )
-      end
-    end
-  end
 end
 # rubocop:enable Metrics/BlockLength

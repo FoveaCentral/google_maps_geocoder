@@ -101,14 +101,9 @@ class GoogleMapsGeocoder
 
   private
 
-  def google_maps_api_key
-    @google_maps_api_key ||= "&key=#{ENV['GOOGLE_MAPS_API_KEY']}" if
-      ENV['GOOGLE_MAPS_API_KEY']
-  end
-
   def google_maps_request(address)
-    "#{GOOGLE_MAPS_API}?address=#{Rack::Utils.escape address}&sensor=false"\
-    "#{google_maps_api_key}"
+    "#{GOOGLE_MAPS_API}?address=#{Rack::Utils.escape address}"\
+    "&key=#{ENV['GOOGLE_MAPS_API_KEY']}"
   end
 
   def google_maps_response(address)
