@@ -51,6 +51,7 @@ class GoogleMapsGeocoder
   def initialize(address)
     @json = address.is_a?(String) ? google_maps_response(address) : address
     raise GeocodingError, @json if @json.blank? || @json['status'] != 'OK'
+
     set_attributes_from_json
     Logger.new(STDERR).info('GoogleMapsGeocoder') do
       "Geocoded \"#{address}\" => \"#{formatted_address}\""
