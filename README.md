@@ -3,7 +3,6 @@
 [![Build Status](https://secure.travis-ci.org/ivanoblomov/google_maps_geocoder.png)](http://travis-ci.org/ivanoblomov/google_maps_geocoder)
 [![Code Climate](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder.png)](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder)
 [![Coverage Status](https://coveralls.io/repos/github/ivanoblomov/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/ivanoblomov/google_maps_geocoder?branch=master)
-[![Dependency Status](https://gemnasium.com/ivanoblomov/google_maps_geocoder.png)](https://gemnasium.com/ivanoblomov/google_maps_geocoder)
 [![Inline docs](http://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master)](http://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
 [![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](http://badge.fury.io/rb/google_maps_geocoder)
 [![security](https://hakiri.io/github/ivanoblomov/google_maps_geocoder/master.svg)](https://hakiri.io/github/ivanoblomov/google_maps_geocoder/master)
