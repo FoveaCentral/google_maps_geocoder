@@ -50,7 +50,9 @@ class GoogleMapsGeocoder
   #   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania DC'
   def initialize(address)
     @json = address.is_a?(String) ? google_maps_response(address) : address
-    raise GeocodingError, @json if @json.blank? || @json['status'] != 'OK'
+    status = @json && @json['status']
+    raise RuntimeError if status == 'OVER_QUERY_LIMIT'
+    raise GeocodingError, @json if @json.blank? || status != 'OK'
 
     set_attributes_from_json
     Logger.new(STDERR).info('GoogleMapsGeocoder') do
@@ -96,20 +98,18 @@ class GoogleMapsGeocoder
     # @return [GeocodingError] the geocoding error
     def initialize(json = {})
       @json = json
+      if (message = @json['error_message'])
+        Logger.new(STDERR).error(message)
+      end
       super @json['status']
     end
   end
 
   private
 
-  def google_maps_api_key
-    @google_maps_api_key ||= "&key=#{ENV['GOOGLE_MAPS_API_KEY']}" if
-      ENV['GOOGLE_MAPS_API_KEY']
-  end
-
   def google_maps_request(address)
-    "#{GOOGLE_MAPS_API}?address=#{Rack::Utils.escape address}&sensor=false"\
-    "#{google_maps_api_key}"
+    "#{GOOGLE_MAPS_API}?address=#{Rack::Utils.escape address}"\
+    "&key=#{ENV['GOOGLE_MAPS_API_KEY']}"
   end
 
   def google_maps_response(address)
