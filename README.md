@@ -90,4 +90,4 @@ export GOOGLE_MAPS_API_KEY=[your key]
 
 ## Copyright
 
-Copyright © 2011-2017 Roderick Monje. See [LICENSE.txt](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/LICENSE.txt) for further details.
+Copyright © 2011-2018 Roderick Monje. See [LICENSE.txt](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/LICENSE.txt) for further details.
