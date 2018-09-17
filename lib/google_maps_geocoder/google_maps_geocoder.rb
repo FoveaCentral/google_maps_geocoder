@@ -95,6 +95,9 @@ class GoogleMapsGeocoder
     # @return [GeocodingError] the geocoding error
     def initialize(json = {})
       @json = json
+      if (message = @json['error_message'])
+        Logger.new(STDERR).error(message)
+      end
       super @json['status']
     end
   end
