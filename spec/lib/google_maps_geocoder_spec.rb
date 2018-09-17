@@ -44,7 +44,7 @@ describe GoogleMapsGeocoder do
       end
     end
     context 'with an invalid address' do
-      subject { GoogleMapsGeocoder.new('Four score and seven years ago') }
+      subject { GoogleMapsGeocoder.new('nowhere that comes to mind') }
 
       it do
         expect { subject }.to raise_error GoogleMapsGeocoder::GeocodingError,
