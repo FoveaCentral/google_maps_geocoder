@@ -44,11 +44,18 @@ describe GoogleMapsGeocoder do
       end
     end
     context 'with an invalid address' do
+      before do
+        @key = ENV['GOOGLE_MAPS_API_KEY']
+        ENV['GOOGLE_MAPS_API_KEY'] = 'invalid_key'
+      end
+
+      after { ENV['GOOGLE_MAPS_API_KEY'] = @key }
+
       subject { GoogleMapsGeocoder.new('nowhere that comes to mind') }
 
       it do
         expect { subject }.to raise_error GoogleMapsGeocoder::GeocodingError,
-                                          'ZERO_RESULTS'
+                                          'REQUEST_DENIED'
       end
     end
   end
