@@ -1,4 +1,4 @@
-require File.expand_path '../lib/google_maps_geocoder/version', __FILE__
+require File.expand_path('lib/google_maps_geocoder/version', __dir__)
 Gem::Specification.new do |s|
   s.name = 'google_maps_geocoder'
   s.version = GoogleMapsGeocoder::VERSION.dup
