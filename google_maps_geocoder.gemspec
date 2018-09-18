@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'coveralls', '~> 0'
   s.add_development_dependency 'rake', '~> 0'
   s.add_development_dependency 'rspec', '~> 3'
-  s.add_development_dependency 'rubocop', '~> 0'
+  s.add_development_dependency 'rubocop', '~> 0.49.0'
 
-  s.add_runtime_dependency 'activesupport', '~> 4.2'
-  s.add_runtime_dependency 'rack', '~> 1.6'
+  s.add_runtime_dependency 'activesupport', '~> 4.1', '>= 4.1.11'
+  s.add_runtime_dependency 'rack', '~> 1.5', '>= 1.5.4'
 
   s.files       = `git ls-files`.split "\n"
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split "\n"
