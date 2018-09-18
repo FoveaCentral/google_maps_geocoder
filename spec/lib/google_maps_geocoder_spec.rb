@@ -43,7 +43,7 @@ describe GoogleMapsGeocoder do
         it { expect(subject.lng).to be_within(0.005).of(-77.0365739) }
       end
     end
-    context 'with an invalid address' do
+    context 'when API key is invalid' do
       before do
         @key = ENV['GOOGLE_MAPS_API_KEY']
         ENV['GOOGLE_MAPS_API_KEY'] = 'invalid_key'
