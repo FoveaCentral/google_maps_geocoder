@@ -21,14 +21,6 @@ class GoogleMapsGeocoder
     GOOGLE_ADDRESS_SEGMENTS + %i[formatted_address formatted_street_address]
   ).freeze
 
-  alias_method :address, :formatted_address
-  alias_method :country, :country_long_name
-  alias_method :country_code, :country_short_name
-  alias_method :latitude, :latitude
-  alias_method :longitude, :lng
-  alias_method :state, :state_long_name
-  alias_method :state_code, :state_short_name
-
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
@@ -47,6 +39,21 @@ class GoogleMapsGeocoder
   attr_reader :formatted_street_address
   # Self-explanatory
   attr_reader(*GOOGLE_ADDRESS_SEGMENTS)
+
+  # Returns the formatted address as a comma-delimited string.
+  alias_method :address, :formatted_address
+  # Returns the address' country as a full string.
+  alias_method :country, :country_long_name
+  # Returns the address' country as an abbreviated string.
+  alias_method :country_code, :country_short_name
+  # Returns the address' latitude as a float.
+  alias_method :latitude, :latitude
+  # Returns the address' longitude as a float.
+  alias_method :longitude, :lng
+  # Returns the address' state as a full string.
+  alias_method :state, :state_long_name
+  # Returns the address' state as an abbreviated string.
+  alias_method :state_code, :state_short_name
 
   # Geocodes the specified address and wraps the results in a GoogleMapsGeocoder
   # object.
