@@ -60,6 +60,26 @@ class GoogleMapsGeocoder
     end
   end
 
+  # Returns the formatted address as a comma-delimited string.
+  def address
+    formatted_address
+  end
+
+  # Returns the address' coordinates as an array of floats.
+  def coordinates
+    [lat, lng]
+  end
+
+  # Returns the address' country as a full string.
+  def country
+    country_long_name
+  end
+
+  # Returns the address' country as an abbreviated string.
+  def country_code
+    country_short_name
+  end
+
   # Returns true if the address Google returns is an exact match.
   #
   # @return [boolean] whether the Google Maps result is an exact match
@@ -70,6 +90,16 @@ class GoogleMapsGeocoder
     !partial_match?
   end
 
+  # Returns the address' latitude as a float.
+  def latitude
+    lat
+  end
+
+  # Returns the address' longitude as a float.
+  def longitude
+    lng
+  end
+
   # Returns true if the address Google returns isn't an exact match.
   #
   # @return [boolean] whether the Google Maps result is a partial match
@@ -78,6 +108,16 @@ class GoogleMapsGeocoder
   #     => true
   def partial_match?
     @json['results'][0]['partial_match'] == true
+  end
+
+  # Returns the address' state as a full string.
+  def state
+    state_long_name
+  end
+
+  # Returns the address' state as an abbreviated string.
+  def state_code
+    state_short_name
   end
 
   # A geocoding error returned by Google Maps.
