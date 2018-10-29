@@ -41,19 +41,19 @@ class GoogleMapsGeocoder
   attr_reader(*GOOGLE_ADDRESS_SEGMENTS)
 
   # Returns the formatted address as a comma-delimited string.
-  alias_method :address, :formatted_address
+  alias :address, :formatted_address
   # Returns the address' country as a full string.
-  alias_method :country, :country_long_name
+  alias :country, :country_long_name
   # Returns the address' country as an abbreviated string.
-  alias_method :country_code, :country_short_name
+  alias :country_code, :country_short_name
   # Returns the address' latitude as a float.
-  alias_method :latitude, :latitude
+  alias :latitude, :latitude
   # Returns the address' longitude as a float.
-  alias_method :longitude, :lng
+  alias :longitude, :lng
   # Returns the address' state as a full string.
-  alias_method :state, :state_long_name
+  alias :state, :state_long_name
   # Returns the address' state as an abbreviated string.
-  alias_method :state_code, :state_short_name
+  alias :state_code, :state_short_name
 
   # Geocodes the specified address and wraps the results in a GoogleMapsGeocoder
   # object.
