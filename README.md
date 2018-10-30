@@ -80,6 +80,7 @@ The complete, hopefully self-explanatory, API is:
 For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the following aliases are also available:
 
 * `GoogleMapsGeocoder#address`
+* `GoogleMapsGeocoder#coordinates`
 * `GoogleMapsGeocoder#country`
 * `GoogleMapsGeocoder#country_code`
 * `GoogleMapsGeocoder#latitude`
