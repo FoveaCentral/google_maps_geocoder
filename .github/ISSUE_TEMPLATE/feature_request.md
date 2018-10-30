@@ -1,17 +1,16 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+# Goal
+Explain this issue's purpose. Focus on the problem that needs to be solved and *not* a particular solution. For example: "Make it easier for users to reset their passwords."
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+# Description
+1. Provide as much background as you need to familiarize the implementer with the problem to be solved.
+2. Include:
+    * screenshots
+    * links to other issues or pull requests
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+# Success Criteria
+How would a stakeholder test whether the feature was completed successfully?
