@@ -42,6 +42,16 @@ describe GoogleMapsGeocoder do
         it { expect(subject.lat).to be_within(0.005).of(38.8976633) }
         it { expect(subject.lng).to be_within(0.005).of(-77.0365739) }
       end
+      context 'Geocoder API' do
+        it { expect(subject.address).to eq subject.formatted_address }
+        it { expect(subject.coordinates).to eq [subject.lat, subject.lng] }
+        it { expect(subject.country).to eq subject.country_long_name }
+        it { expect(subject.country_code).to eq subject.country_short_name }
+        it { expect(subject.latitude).to eq subject.lat }
+        it { expect(subject.longitude).to eq subject.lng }
+        it { expect(subject.state).to eq subject.state_long_name }
+        it { expect(subject.state_code).to eq subject.state_short_name }
+      end
     end
     context 'when API key is invalid' do
       before do

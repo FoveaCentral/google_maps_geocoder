@@ -77,6 +77,17 @@ The complete, hopefully self-explanatory, API is:
 * `GoogleMapsGeocoder#state_long_name`
 * `GoogleMapsGeocoder#state_short_name`
 
+For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the following aliases are also available:
+
+* `GoogleMapsGeocoder#address`
+* `GoogleMapsGeocoder#coordinates`
+* `GoogleMapsGeocoder#country`
+* `GoogleMapsGeocoder#country_code`
+* `GoogleMapsGeocoder#latitude`
+* `GoogleMapsGeocoder#longitude`
+* `GoogleMapsGeocoder#state`
+* `GoogleMapsGeocoder#state_code`
+
 ## Google Maps API Key (Optional)
 
 To have GoogleMapsGeocoder use your Google Maps API key, set it as an environment variable:
