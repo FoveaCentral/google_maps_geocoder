@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = 'Geocode a location without worrying about parsing Google '\
                   "Maps' response. GoogleMapsGeocoder wraps it in a plain-old "\
                   'Ruby object.'
-  s.homepage = 'http://github.com/ivanoblomov/google_maps_geocoder'
+  s.homepage = 'https://github.com/ivanoblomov/google_maps_geocoder'
   s.authors = ['Roderick Monje']
   s.email = 'rod@foveacentral.com'
 
