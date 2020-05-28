@@ -11,17 +11,23 @@ A simple Plain Old Ruby Object wrapper for geocoding with Google Maps.
 
 ## Installation
 
-Add GoogleMapsGeocoder to your Gemfile and run `bundle`:
+1. Set your Google Maps API key, which Google now requires, as an environment variable:
 
-```ruby
-  gem 'google_maps_geocoder'
-```
+    ```bash
+    export GOOGLE_MAPS_API_KEY=[your key]
+    ```
 
-Or try it out in `irb` with:
+2. Add `GoogleMapsGeocoder` to your Gemfile and run `bundle`:
 
-```ruby
-  require './lib/google_maps_geocoder/google_maps_geocoder'
-```
+    ```ruby
+    gem 'google_maps_geocoder'
+    ```
+
+    Or try it out in `irb` with:
+
+    ```ruby
+    require './lib/google_maps_geocoder/google_maps_geocoder'
+    ```
 
 ## Ready to Go in One Step
 
@@ -87,14 +93,6 @@ For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the 
 * `GoogleMapsGeocoder#longitude`
 * `GoogleMapsGeocoder#state`
 * `GoogleMapsGeocoder#state_code`
-
-## Google Maps API Key (Optional)
-
-To have GoogleMapsGeocoder use your Google Maps API key, set it as an environment variable:
-
-```bash
-export GOOGLE_MAPS_API_KEY=[your key]
-```
 
 ## [Contributing to GoogleMapsGeocoder](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/.github/CONTRIBUTING.md)
 
