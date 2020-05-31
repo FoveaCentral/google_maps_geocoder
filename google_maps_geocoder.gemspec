@@ -13,11 +13,11 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0'
   s.add_development_dependency 'coveralls', '~> 0'
-  s.add_development_dependency 'rake', '>= 12.3.3'
+  s.add_development_dependency 'rake', '~> 12.3', '>= 12.3.3'
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rubocop', '~> 0.49.0'
 
-  s.add_runtime_dependency 'activesupport', '>= 4.1.11'
+  s.add_runtime_dependency 'activesupport', '~> 4.1', '>= 4.1.11'
   s.add_runtime_dependency 'rack', '~> 2.1.3'
 
   s.files       = `git ls-files`.split "\n"
