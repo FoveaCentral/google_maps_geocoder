@@ -98,4 +98,4 @@ For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the 
 
 ## Copyright
 
-Copyright © 2011-2020 Roderick Monje. See [LICENSE.txt](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/LICENSE.txt) for further details.
+Copyright © 2011-2021 Roderick Monje. See [LICENSE.txt](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/LICENSE.txt) for further details.
