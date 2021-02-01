@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder.png)](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder)
 [![Coverage Status](https://coveralls.io/repos/github/ivanoblomov/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/ivanoblomov/google_maps_geocoder?branch=master)
 [![Inline docs](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master)](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
-[![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](https://badge.fury.io/rb/google_maps_geocoder)
+[![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](https://rubygems.org/gems/google_maps_geocoder)
 [![security](https://hakiri.io/github/ivanoblomov/google_maps_geocoder/master.svg)](https://hakiri.io/github/ivanoblomov/google_maps_geocoder/master)
 
 A simple Plain Old Ruby Object wrapper for geocoding with Google Maps.
