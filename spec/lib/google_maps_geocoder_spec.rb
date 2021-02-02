@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.dirname(__FILE__) + '/../spec_helper'
 # rubocop:disable Metrics/BlockLength
 describe GoogleMapsGeocoder do
@@ -5,7 +7,7 @@ describe GoogleMapsGeocoder do
     begin
       @exact_match = GoogleMapsGeocoder.new('White House')
     rescue SocketError
-      @no_network  = true
+      @no_network = true
     rescue RuntimeError
       @query_limit = true
     end

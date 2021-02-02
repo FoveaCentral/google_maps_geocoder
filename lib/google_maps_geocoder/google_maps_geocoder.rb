@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support'
 require 'logger'
 require 'net/http'
@@ -15,7 +17,7 @@ class GoogleMapsGeocoder
     city country_long_name country_short_name county lat lng postal_code
     state_long_name state_short_name
   ].freeze
-  GOOGLE_MAPS_API = 'https://maps.googleapis.com/maps/api/geocode/json'.freeze
+  GOOGLE_MAPS_API = 'https://maps.googleapis.com/maps/api/geocode/json'
 
   ALL_ADDRESS_SEGMENTS = (
     GOOGLE_ADDRESS_SEGMENTS + %i[formatted_address formatted_street_address]
@@ -147,7 +149,7 @@ class GoogleMapsGeocoder
 
   def parse_address_component_type(type, name = 'long_name')
     address_component = @json['results'][0]['address_components'].detect do |ac|
-      ac['types'] && ac['types'].include?(type)
+      ac['types']&.include?(type)
     end
     address_component && address_component[name]
   end
