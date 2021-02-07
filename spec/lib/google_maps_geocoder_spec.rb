@@ -35,7 +35,7 @@ describe GoogleMapsGeocoder do
         it { expect(subject.country_long_name).to eq 'United States' }
         it do
           expect(subject.formatted_address)
-            .to match(/1600 Pennsylvania Ave NW, Washington, DC 20500, USA/)
+            .to match(/1600 Pennsylvania Avenue NW, Washington, DC 20500, USA/)
         end
       end
       context 'coordinates' do

@@ -2,25 +2,31 @@
 
 [![Code Climate](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder.png)](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder)
 [![Coverage Status](https://coveralls.io/repos/github/ivanoblomov/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/ivanoblomov/google_maps_geocoder?branch=master)
-[![Inline docs](http://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master)](http://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
-[![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](http://badge.fury.io/rb/google_maps_geocoder)
+[![Inline docs](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master)](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
+[![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](https://rubygems.org/gems/google_maps_geocoder)
 [![security](https://hakiri.io/github/ivanoblomov/google_maps_geocoder/master.svg)](https://hakiri.io/github/ivanoblomov/google_maps_geocoder/master)
 
 A simple Plain Old Ruby Object wrapper for geocoding with Google Maps.
 
 ## Installation
 
-Add GoogleMapsGeocoder to your Gemfile and run `bundle`:
+1. Set your Google Maps API key, which Google now requires, as an environment variable:
 
-```ruby
-  gem 'google_maps_geocoder'
-```
+    ```bash
+    export GOOGLE_MAPS_API_KEY=[your key]
+    ```
 
-Or try it out in `irb` with:
+2. Add `GoogleMapsGeocoder` to your Gemfile and run `bundle`:
 
-```ruby
-  require './lib/google_maps_geocoder/google_maps_geocoder'
-```
+    ```ruby
+    gem 'google_maps_geocoder'
+    ```
+
+    Or try it out in `irb` with:
+
+    ```ruby
+    require './lib/google_maps_geocoder/google_maps_geocoder'
+    ```
 
 ## Ready to Go in One Step
 
@@ -87,16 +93,8 @@ For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the 
 * `GoogleMapsGeocoder#state`
 * `GoogleMapsGeocoder#state_code`
 
-## Google Maps API Key (Optional)
-
-To have GoogleMapsGeocoder use your Google Maps API key, set it as an environment variable:
-
-```bash
-export GOOGLE_MAPS_API_KEY=[your key]
-```
-
 ## [Contributing to GoogleMapsGeocoder](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/.github/CONTRIBUTING.md)
 
 ## Copyright
 
-Copyright © 2011-2020 Roderick Monje. See [LICENSE.txt](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/LICENSE.txt) for further details.
+Copyright © 2011-2021 Roderick Monje. See [LICENSE.txt](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/LICENSE.txt) for further details.
