@@ -7,8 +7,6 @@
 
 name: Ruby
 
-environment: staging
-
 on:
   push:
     branches: [ master ]
@@ -16,14 +14,12 @@ on:
     branches: [ master ]
 
 jobs:
+  environment: staging
   test:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         ruby-version: [2.2.x, 2.3.x, 2.4.x, 2.5.x, 2.6.x, 2.7.x, 3.0.x]
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby ${{ matrix.ruby-version }}
