@@ -6,7 +6,7 @@
 [![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](https://rubygems.org/gems/google_maps_geocoder)
 [![security](https://hakiri.io/github/ivanoblomov/google_maps_geocoder/master.svg)](https://hakiri.io/github/ivanoblomov/google_maps_geocoder/master)
 
-A simple Plain Old Ruby Object wrapper for geocoding with Google Maps. Extracted from [Novels: On Location](http://novelsonlocation.com), GoogleMapsGeocoder saves you from having to parse Google Maps's JSON response.
+A simple Plain Old Ruby Object wrapper for geocoding with Google Maps.
 
 ## Installation
 
