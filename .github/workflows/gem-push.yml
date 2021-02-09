@@ -1,10 +1,13 @@
 name: Ruby Gem
 
 on:
+  # Manually publish
+  workflow_dispatch:
+  # Alternatively, publish whenever changes are merged to the default branch.
   push:
-    branches: [ master ]
+    branches: [ $default-branch ]
   pull_request:
-    branches: [ master ]
+    branches: [ $default-branch ]
 
 jobs:
   build:
@@ -13,10 +16,23 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby 2.7
-      uses: actions/setup-ruby@v1
+    - name: Set up Ruby 2.6
+      uses: ruby/setup-ruby@v1
       with:
-        version: 2.7.x
+        ruby-version: 2.6
+    - run: bundle install
+
+    - name: Publish to GPR
+      run: |
+        mkdir -p $HOME/.gem
+        touch $HOME/.gem/credentials
+        chmod 0600 $HOME/.gem/credentials
+        printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+        gem build *.gemspec
+        gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+      env:
+        GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
+        OWNER: ${{ github.repository_owner }}
 
     - name: Publish to RubyGems
       run: |
@@ -27,4 +43,4 @@ jobs:
         gem build *.gemspec
         gem push *.gem
       env:
-        GEM_HOST_API_KEY: ${{secrets.RUBYGEMS_AUTH_TOKEN}}
+        GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
