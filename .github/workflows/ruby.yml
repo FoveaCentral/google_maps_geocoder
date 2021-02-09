@@ -1,0 +1,27 @@
+# Download the latest Ruby patch versions, install dependencies, and run tests.
+name: Ruby
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  test:
+    environment: staging
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: [2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 3.0]
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up Ruby ${{ matrix.ruby-version }}
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+    - name: Install dependencies
+      run: bundle install
+    - name: Run tests
+      env:
+        GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+      run: bundle exec rake
