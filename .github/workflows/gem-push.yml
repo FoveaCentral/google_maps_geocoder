@@ -1,13 +1,10 @@
 name: Ruby Gem
-
 on:
-  # Manually publish
   workflow_dispatch:
 jobs:
   build:
     name: Build + Publish
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby 2.7
