@@ -13,7 +13,7 @@
 
 1. **Add specs** that either reproduces the bug or covers the new feature. In the former's case, *make sure it fails without the fix!*
 
-2. **Confirm your last build passes** on [Travis CI](https://travis-ci.org/ivanoblomov/google_maps_geocoder/branches).
+2. **Confirm your last build passes** on your GitHub branch or PR.
 
 3. **Update the inline documentation.** Format it with [YARD](http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md). For example, see [`GoogleMapsGeocoder.new`](https://github.com/ivanoblomov/google_maps_geocoder/blob/github-templates/lib/google_maps_geocoder/google_maps_geocoder.rb#L43-L50).
 
