@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support'
 require 'logger'
 require 'net/http'
@@ -15,7 +17,7 @@ class GoogleMapsGeocoder
     city country_long_name country_short_name county lat lng postal_code
     state_long_name state_short_name
   ].freeze
-  GOOGLE_MAPS_API = 'https://maps.googleapis.com/maps/api/geocode/json'.freeze
+  GOOGLE_MAPS_API = 'https://maps.googleapis.com/maps/api/geocode/json'
 
   ALL_ADDRESS_SEGMENTS = (
     GOOGLE_ADDRESS_SEGMENTS + %i[formatted_address formatted_street_address]
@@ -70,7 +72,7 @@ class GoogleMapsGeocoder
     raise GeocodingError, @json if @json.blank? || status != 'OK'
 
     set_attributes_from_json
-    Logger.new(STDERR).info('GoogleMapsGeocoder') do
+    Logger.new($stderr).info('GoogleMapsGeocoder') do
       "Geocoded \"#{address}\" => \"#{formatted_address}\""
     end
   end
@@ -119,7 +121,7 @@ class GoogleMapsGeocoder
     def initialize(json = {})
       @json = json
       if (message = @json['error_message'])
-        Logger.new(STDERR).error(message)
+        Logger.new($stderr).error(message)
       end
       super @json['status']
     end
@@ -147,7 +149,7 @@ class GoogleMapsGeocoder
 
   def parse_address_component_type(type, name = 'long_name')
     address_component = @json['results'][0]['address_components'].detect do |ac|
-      ac['types'] && ac['types'].include?(type)
+      ac['types']&.include?(type)
     end
     address_component && address_component[name]
   end
