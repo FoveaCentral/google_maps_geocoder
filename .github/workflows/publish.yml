@@ -1,4 +1,4 @@
-name: Publish to RubyGems.org
+name: publish
 on:
   workflow_dispatch:
 jobs:
