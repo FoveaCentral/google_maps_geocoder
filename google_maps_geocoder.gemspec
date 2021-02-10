@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'coveralls', '~> 0'
   s.add_development_dependency 'rake', '~> 12.3', '>= 12.3.3'
   s.add_development_dependency 'rspec', '~> 3'
-  s.add_development_dependency 'rubocop', '~> 1.9'
+  s.add_development_dependency 'rubocop', '~> 1.8'
 
   s.add_runtime_dependency 'activesupport', '~> 4.1', '>= 4.1.11'
   s.add_runtime_dependency 'rack', '~> 2.1.4'
