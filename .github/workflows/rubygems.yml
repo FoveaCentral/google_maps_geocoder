@@ -1,6 +1,8 @@
 name: Ruby Gem
 on:
   workflow_dispatch:
+# on:
+#   workflow_dispatch:
 jobs:
   build:
     name: Build + Publish
