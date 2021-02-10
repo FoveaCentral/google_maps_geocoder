@@ -1,5 +1,5 @@
 # Download the latest Ruby patch versions, install dependencies, and run tests.
-name: Ruby
+name: Test build
 on:
   push:
     branches: [ master ]
