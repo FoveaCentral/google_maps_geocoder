@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'simplecov'
 require 'rubygems'
 require 'bundler'
 begin
