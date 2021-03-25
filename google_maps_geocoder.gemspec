@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rubocop', '< 1.13'
 
-  s.add_runtime_dependency 'activesupport', '~> 4.1', '>= 4.1.11'
+  s.add_runtime_dependency 'activesupport', '>= 4.1.11', '< 7.0'
   s.add_runtime_dependency 'rack', '>= 2.1.4', '< 2.3.0'
 
   s.files       = `git ls-files`.split "\n"
