@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', '>= 12.3.3', '~> 13.0'
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rubocop', '< 1.13'
-  s.add_development_dependency 'simplecov', '~> 0.17'
+  s.add_development_dependency 'simplecov', '~> 0.16'
   s.add_development_dependency 'simplecov-lcov', '~> 0.8'
 
   s.add_runtime_dependency 'activesupport', '>= 4.1.11', '< 7.0'
