@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.authors = ['Roderick Monje']
   s.email = 'rod@foveacentral.com'
 
-  s.add_development_dependency 'codeclimate-test-reporter', '~> 0'
+  s.add_development_dependency 'codeclimate-test-reporter', '~> 1'
   s.add_development_dependency 'coveralls', '~> 0'
   s.add_development_dependency 'rake', '~> 12.3', '>= 12.3.3'
   s.add_development_dependency 'rspec', '~> 3'
