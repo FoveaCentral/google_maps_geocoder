@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-SimpleCov.start
-require 'coveralls'
-Coveralls.wear!
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
-  Coveralls::SimpleCov::Formatter
-)
 require 'rubygems'
 require 'bundler'
 begin
