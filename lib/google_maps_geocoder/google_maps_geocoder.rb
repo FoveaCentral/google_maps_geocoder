@@ -149,7 +149,7 @@ class GoogleMapsGeocoder
 
   def parse_address_component_type(type, name = 'long_name')
     address_component = @json['results'][0]['address_components'].detect do |ac|
-      ac['types'] && ac['types'].include?(type)
+      ac['types']&.include?(type)
     end
     address_component && address_component[name]
   end
