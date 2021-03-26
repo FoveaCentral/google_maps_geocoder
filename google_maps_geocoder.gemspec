@@ -1,3 +1,4 @@
+# rubocop:disable Gemspec/RequiredRubyVersion
 # frozen_string_literal: true
 
 require File.expand_path('lib/google_maps_geocoder/version', __dir__)
@@ -29,3 +30,4 @@ Gem::Specification.new do |s|
                                          .map { |f| File.basename f }
   s.require_paths = ['lib']
 end
+# rubocop:enable Gemspec/RequiredRubyVersion
