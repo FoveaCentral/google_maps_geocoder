@@ -4,11 +4,13 @@ require "#{File.dirname(__FILE__)}/../spec_helper"
 # rubocop:disable Metrics/BlockLength
 describe GoogleMapsGeocoder do
   before(:all) do
-    @exact_match = GoogleMapsGeocoder.new('White House')
-  rescue SocketError
-    @no_network  = true
-  rescue RuntimeError
-    @query_limit = true
+    begin
+      @exact_match = GoogleMapsGeocoder.new('White House')
+    rescue SocketError
+      @no_network  = true
+    rescue RuntimeError
+      @query_limit = true
+    end
   end
 
   before(:each) do
