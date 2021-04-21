@@ -4,7 +4,7 @@ require "#{File.dirname(__FILE__)}/../spec_helper"
 # rubocop:disable Metrics/BlockLength
 describe GoogleMapsGeocoder do
   before(:all) do
-    # rubocop:disable Style/RedundantBegin
+    # rubocop:disable Lint/RedundantCopDisableDirective, Style/RedundantBegin
     begin
       @exact_match = GoogleMapsGeocoder.new('White House')
     rescue SocketError
@@ -12,7 +12,7 @@ describe GoogleMapsGeocoder do
     rescue RuntimeError
       @query_limit = true
     end
-    # rubocop:enable Style/RedundantBegin
+    # rubocop:enable Lint/RedundantCopDisableDirective, Style/RedundantBegin
   end
 
   before(:each) do
