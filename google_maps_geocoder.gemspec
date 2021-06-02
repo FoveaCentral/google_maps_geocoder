@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'codeclimate-test-reporter', '~> 1'
   s.add_development_dependency 'rake', '>= 12.3.3', '~> 13.0'
   s.add_development_dependency 'rspec', '~> 3'
-  s.add_development_dependency 'rubocop', '< 1.16'
+  s.add_development_dependency 'rubocop', '< 1.17'
   s.add_development_dependency 'rubocop-rake', '~> 0'
   s.add_development_dependency 'rubocop-rspec', '~> 2'
   s.add_development_dependency 'simplecov', '~> 0.18'
