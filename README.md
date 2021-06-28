@@ -97,7 +97,7 @@ For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the 
 
 ## Cheers!
 
- <a href="https://www.buymeacoffee.com/oblomov" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" height="41" width="174" ></a>
+<a href="https://www.buymeacoffee.com/oblomov" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" height="41" width="174" ></a>
 
 ## Copyright
 
