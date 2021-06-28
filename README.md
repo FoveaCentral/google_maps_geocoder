@@ -95,6 +95,10 @@ For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the 
 
 ## [Contributing to GoogleMapsGeocoder](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/.github/CONTRIBUTING.md)
 
+## Cheers!
+
+[![Buy Me A Coffee](<https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png>)](<https://www.buymeacoffee.com/oblomov>)
+
 ## Copyright
 
 Copyright © 2011-2021 Roderick Monje. See [LICENSE.txt](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/LICENSE.txt) for further details.
