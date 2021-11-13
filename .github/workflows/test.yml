@@ -1,5 +1,4 @@
 # Download the latest Ruby patch versions, install dependencies, and run tests.
-
 name: test
 on:
   push:
