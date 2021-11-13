@@ -1,4 +1,3 @@
-# this is a test
 # How to contribute
 
 ## **Did you find a bug?**
