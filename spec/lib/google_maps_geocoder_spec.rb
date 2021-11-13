@@ -31,7 +31,7 @@ describe GoogleMapsGeocoder do
           expect(subject.formatted_street_address)
             .to eq '1600 Pennsylvania Avenue Northwest'
         end
-        it { expect(subject.city).to eq 'Washington' }
+        it { expect(subject.city).not_to eq 'Washington' }
         it { expect(subject.state_long_name).to eq 'District of Columbia' }
         it { expect(subject.state_short_name).to eq 'DC' }
         it { expect(subject.postal_code).to eq '20500' }
