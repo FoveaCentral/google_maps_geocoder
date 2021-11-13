@@ -3,14 +3,18 @@ name: test
 on:
   push:
     branches: [ master ]
-    paths-ignore:
-      - '**.md'
-      - '**.txt'
+    paths:
+      - 'Rakefile'
+      - '**.gemspec'
+      - '**.rb'
+      - '**.yml'
   pull_request:
     branches: [ master ]
-    paths-ignore:
-      - '**.md'
-      - '**.txt'
+    paths:
+      - 'Rakefile'
+      - '**.gemspec'
+      - '**.rb'
+      - '**.yml'
 jobs:
   test:
     environment: staging
