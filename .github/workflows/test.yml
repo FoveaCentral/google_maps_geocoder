@@ -4,13 +4,13 @@ on:
   push:
     branches: [ master ]
     paths-ignore:
-      - '**/*.md'
-      - '**/*.txt'
+      - '**.md'
+      - '**.txt'
   pull_request:
     branches: [ master ]
     paths-ignore:
-      - '**/*.md'
-      - '**/*.txt'
+      - '**.md'
+      - '**.txt'
 jobs:
   test:
     environment: staging
