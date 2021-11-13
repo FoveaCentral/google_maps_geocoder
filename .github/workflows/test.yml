@@ -2,11 +2,9 @@
 name: test
 on:
   push:
-    paths:
-      - 'Rakefile'
-      - '**.gemspec'
-      - '**.rb'
-      - '**.yml'
+    paths-ignore:
+      - '**.md'
+      - '**.txt'
 jobs:
   test:
     environment: staging
