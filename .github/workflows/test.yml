@@ -2,14 +2,6 @@
 name: test
 on:
   push:
-    branches: [ master ]
-    paths:
-      - 'Rakefile'
-      - '**.gemspec'
-      - '**.rb'
-      - '**.yml'
-  pull_request:
-    branches: [ master ]
     paths:
       - 'Rakefile'
       - '**.gemspec'
