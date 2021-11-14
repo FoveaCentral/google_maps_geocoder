@@ -19,6 +19,10 @@
 
 4. [Open a pull request](https://github.com/ivanoblomov/google_maps_geocoder/compare) with the patch or feature. Follow the template's directions.
 
+## **New to open-source?**
+
+Try your hand at one of the small tasks ideal for new or casual contributors that are [up-for-grabs](https://github.com/ivanoblomov/google_maps_geocoder/issues?q=is%3Aissue+is%3Aopen+label%3Aup-for-grabs). Welcome to the community!
+
 ## Developer Certificate of Origin (DCO)
 
 All contributions (including pull requests) must agree to
