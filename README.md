@@ -94,11 +94,11 @@ For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the 
 * `GoogleMapsGeocoder#state`
 * `GoogleMapsGeocoder#state_code`
 
-## [Contributing to GoogleMapsGeocoder](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/.github/CONTRIBUTING.md)
-
 ## Documentation
 
 Complete RDoc documentation is available at [RubyDoc.info](https://www.rubydoc.info/gems/google_maps_geocoder).
+
+## [Contributing to GoogleMapsGeocoder](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/.github/CONTRIBUTING.md)
 
 ## Cheers!
 
