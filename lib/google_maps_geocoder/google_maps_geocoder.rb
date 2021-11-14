@@ -1,4 +1,5 @@
 # Copyright the GoogleMapsGeocoder contributors.
+# SPDX-License-Identifier: MIT
 # frozen_string_literal: true
 
 require 'active_support'
