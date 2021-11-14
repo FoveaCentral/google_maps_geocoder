@@ -96,6 +96,10 @@ For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the 
 
 ## [Contributing to GoogleMapsGeocoder](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/.github/CONTRIBUTING.md)
 
+## Documentation
+
+Complete RDoc documentation is available at [RubyDoc.info](https://www.rubydoc.info/gems/google_maps_geocoder).
+
 ## Cheers!
 
 <a href="https://www.buymeacoffee.com/oblomov" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" height="41" width="174" ></a>
