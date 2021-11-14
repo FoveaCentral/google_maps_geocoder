@@ -19,4 +19,21 @@
 
 4. [Open a pull request](https://github.com/ivanoblomov/google_maps_geocoder/compare) with the patch or feature. Follow the template's directions.
 
+## Developer Certificate of Origin (DCO)
+
+All contributions (including pull requests) must agree to
+the [Developer Certificate of Origin (DCO) version 1.1](doc/dco.txt).
+This is exactly the same one created and used by the Linux kernel developers
+and posted on <http://developercertificate.org/>.
+This is a developer's certification that he or she has the right to
+submit the patch for inclusion into the project.
+
+Simply submitting a contribution implies this agreement, however,
+please include a "Signed-off-by" tag in the PR
+(this tag is a conventional way to confirm that you agree to the DCO).
+
+It's not practical to fix old contributions in git, so if one is forgotten,
+do not try to fix them.  We presume that if someone sometimes used a DCO,
+a commit without a DCO is an accident and the DCO still applies.
+
 ## Thanks for contributing!
