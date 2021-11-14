@@ -1,7 +1,7 @@
 # GoogleMapsGeocoder
 
 ![Build status](https://github.com/ivanoblomov/google_maps_geocoder/workflows/test/badge.svg)
-[![Code Climate](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder.png)](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder)
+[![Code Climate](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder.svg)](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder)
 [![Coverage Status](https://coveralls.io/repos/github/ivanoblomov/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/ivanoblomov/google_maps_geocoder?branch=master)
 [![Inline docs](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master)](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/92/badge)](https://bestpractices.coreinfrastructure.org/projects/92)
@@ -95,6 +95,10 @@ For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the 
 * `GoogleMapsGeocoder#state_code`
 
 ## [Contributing to GoogleMapsGeocoder](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/.github/CONTRIBUTING.md)
+
+## Documentation
+
+Complete RDoc documentation is available at [RubyDoc.info](https://www.rubydoc.info/gems/google_maps_geocoder).
 
 ## Cheers!
 

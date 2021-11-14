@@ -11,7 +11,7 @@
 
 ## **Did you write a patch that fixes a bug or adds a new feature?**
 
-1. **Add specs** that either reproduces the bug or covers the new feature. In the former's case, *make sure it fails without the fix!*
+1. **Add specs** that either *reproduce the bug* or *cover the new feature*. In the former's case, *make sure it fails without the fix!*
 
 2. **Confirm your last build passes** on your GitHub branch or PR.
 
