@@ -29,27 +29,8 @@ This is a developer's certification that he or she has the right to
 submit the patch for inclusion into the project.
 
 Simply submitting a contribution implies this agreement, however,
-please include a "Signed-off-by" tag in every patch
+please include a "Signed-off-by" tag in the PR
 (this tag is a conventional way to confirm that you agree to the DCO).
-You can do this with <tt>git commit --signoff</tt> (the <tt>-s</tt> flag
-is a synonym for <tt>--signoff</tt>).
-
-Another way to do this is to write the following at the end of the commit
-message, on a line by itself separated by a blank line from the body of
-the commit:
-
-````
-Signed-off-by: YOUR NAME <YOUR.EMAIL@EXAMPLE.COM>
-````
-
-You can signoff by default in this project by creating a file
-(say "git-template") that contains
-some blank lines and the signed-off-by text above;
-then configure git to use that as a commit template.  For example:
-
-````sh
-git config commit.template ~/cii-best-practices-badge/git-template
-````
 
 It's not practical to fix old contributions in git, so if one is forgotten,
 do not try to fix them.  We presume that if someone sometimes used a DCO,
