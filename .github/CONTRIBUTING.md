@@ -19,7 +19,7 @@ Try your hand at one of the small tasks ideal for new or casual contributors tha
 
 2. **Confirm your last build passes** on your GitHub branch or PR.
 
-3. **Update the inline documentation.** Format it with [YARD](http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md). For example, see [`GoogleMapsGeocoder.new`](../lib/google_maps_geocoder/google_maps_geocoder.rb#L43-L50).
+3. **Update the inline documentation.** Format it with [YARD](http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md). For example, see [`GoogleMapsGeocoder.new`](../lib/google_maps_geocoder/google_maps_geocoder.rb).
 
 4. [Open a pull request](https://github.com/ivanoblomov/google_maps_geocoder/compare) with the patch or feature. Follow the template's directions.
 
