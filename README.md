@@ -1,8 +1,8 @@
 # GoogleMapsGeocoder
 
-![Build status](./workflows/test/badge.svg)
-[![Code Climate](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder.svg)](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder)
-[![Coverage Status](https://coveralls.io/repos/github/ivanoblomov/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/ivanoblomov/google_maps_geocoder?branch=master)
+![Build status](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/workflows/test/badge.svg)
+[![Code Climate](https://codeclimate.com/github/GoogleMapsGeocoder/google_maps_geocoder.svg)](https://codeclimate.com/github/GoogleMapsGeocoder/google_maps_geocoder)
+[![Coverage Status](https://coveralls.io/repos/github/GoogleMapsGeocoder/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/GoogleMapsGeocoder/google_maps_geocoder?branch=master)
 [![Inline docs](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master)](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/92/badge)](https://bestpractices.coreinfrastructure.org/projects/92)
 [![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](https://rubygems.org/gems/google_maps_geocoder)
