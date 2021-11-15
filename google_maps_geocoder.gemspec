@@ -9,13 +9,12 @@ Gem::Specification.new do |s|
   s.description = 'Geocode a location without worrying about parsing Google '\
                   "Maps' response. GoogleMapsGeocoder wraps it in a plain-old "\
                   'Ruby object.'
-  s.homepage = 'https://github.com/ivanoblomov/google_maps_geocoder'
+  s.homepage = 'https://github.com/GoogleMapsGeocoder/google_maps_geocoder'
   s.authors = ['Roderick Monje']
   s.cert_chain = ['certs/ivanoblomov.pem']
   s.email = 'rod@foveacentral.com'
   s.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME =~ /gem\z/
 
-  s.add_development_dependency 'codeclimate-test-reporter', '~> 1'
   s.add_development_dependency 'rake', '>= 12.3.3', '~> 13.0'
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rubocop', '< 1.23'
