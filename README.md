@@ -1,6 +1,6 @@
 # GoogleMapsGeocoder
 
-![Build status](https://github.com/ivanoblomov/google_maps_geocoder/workflows/test/badge.svg)
+![Build status](workflows/test/badge.svg)
 [![Code Climate](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder.svg)](https://codeclimate.com/github/ivanoblomov/google_maps_geocoder)
 [![Coverage Status](https://coveralls.io/repos/github/ivanoblomov/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/ivanoblomov/google_maps_geocoder?branch=master)
 [![Inline docs](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master)](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
@@ -107,7 +107,7 @@ For compatibility with [Geocoder](https://github.com/alexreisner/geocoder), the 
 
 Complete RDoc documentation is available at [RubyDoc.info](https://www.rubydoc.info/gems/google_maps_geocoder).
 
-## [Contributing to GoogleMapsGeocoder](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/.github/CONTRIBUTING.md)
+## [Contributing to GoogleMapsGeocoder](.github/CONTRIBUTING.md)
 
 ## Cheers!
 
@@ -115,4 +115,4 @@ Complete RDoc documentation is available at [RubyDoc.info](https://www.rubydoc.i
 
 ## Copyright
 
-Copyright © 2011-2021 Roderick Monje. See [LICENSE.txt](https://github.com/ivanoblomov/google_maps_geocoder/blob/master/LICENSE.txt) for further details.
+Copyright © 2011-2021 Roderick Monje. See [LICENSE.txt](LICENSE.txt) for further details.
