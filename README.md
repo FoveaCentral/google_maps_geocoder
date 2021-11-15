@@ -35,7 +35,7 @@ A simple Plain Old Ruby Object wrapper for geocoding with Google Maps.
 
 ```sh
 gem cert --add <(curl -Ls https://raw.github.com/GoogleMapsGeocoder/google_maps_geocoder/master/certs/ivanoblomov.pem)
-gem install metric_fu -P HighSecurity
+gem install google_maps_geocoder -P HighSecurity
 ```
 
 ## Ready to Go in One Step
