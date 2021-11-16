@@ -11,7 +11,6 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7
-    - run: bundle install
     - name: Publish to RubyGems
       env:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
