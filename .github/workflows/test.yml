@@ -9,9 +9,10 @@ jobs:
   test:
     environment: staging
     runs-on: ubuntu-latest
+    name: Ruby ${{ matrix.ruby-version }}
     strategy:
       matrix:
-        ruby-version: [2.5, 2.6, 2.7, 3.0]
+        ruby-version: [2.5, 2.6, 2.7, '3.0']
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -19,8 +20,7 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
-    - name: Install dependencies
-      run: bundle install
+        bundler-cache: true # 'bundle install' and cache
     - name: Run tests
       env:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
@@ -30,4 +30,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Rubocop
-      run: bundle ex rubocop
+      run: bundle exec rubocop
