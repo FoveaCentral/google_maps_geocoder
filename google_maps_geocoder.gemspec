@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov', '~> 0.18'
   s.add_development_dependency 'simplecov-lcov', '~> 0.8'
 
-  s.add_runtime_dependency 'activesupport', '>= 4.1.11', '< 7.0'
   s.add_runtime_dependency 'rack', '>= 2.1.4', '< 2.3.0'
 
   s.files = `git ls-files`.split "\n"

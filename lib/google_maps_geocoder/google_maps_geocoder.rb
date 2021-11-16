@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 # frozen_string_literal: true
 
-require 'active_support'
+require 'json'
 require 'logger'
 require 'net/http'
 require 'rack'
@@ -71,7 +71,7 @@ class GoogleMapsGeocoder
     @json = address.is_a?(String) ? google_maps_response(address) : address
     status = @json && @json['status']
     raise RuntimeError if status == 'OVER_QUERY_LIMIT'
-    raise GeocodingError, @json if @json.blank? || status != 'OK'
+    raise GeocodingError, @json if !@json || (@json && @json.empty?) || status != 'OK'
 
     set_attributes_from_json
     Logger.new($stderr).info('GoogleMapsGeocoder') do
@@ -139,7 +139,7 @@ class GoogleMapsGeocoder
   def google_maps_response(address)
     uri = URI.parse google_maps_request(address)
     response = http(uri).request(Net::HTTP::Get.new(uri.request_uri))
-    ActiveSupport::JSON.decode response.body
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def http(uri)
