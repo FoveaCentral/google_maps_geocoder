@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'activesupport', '>= 4.1.11', '< 7.0'
   s.add_runtime_dependency 'rack', '>= 2.1.4', '< 2.3.0'
 
-  s.files       = `git ls-files`.split "\n"
+  s.files = `git ls-files`.split "\n"
   s.require_paths = ['lib']
   s.required_ruby_version = '>= 2.5'
 end
