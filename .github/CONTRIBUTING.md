@@ -4,11 +4,17 @@
 
 ### Branches and pull requests
 
-We recommend:
+To make a contribution:
 
-1. creating a new branch for a given set of logical changes
+1. create a new branch for a given set of logical changes
 
-2. opening a pull request for the main branch when you're done
+2. open a pull request for the main branch
+
+3. request a review
+    1. click Reviewers from the main tab of the PR
+    2. select one or more contributors
+
+4. wait for feedback
 
 For more information, see GitHub's documentation on [creating branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository) and [pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
