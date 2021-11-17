@@ -25,15 +25,19 @@ Try your hand at one of the small tasks ideal for new or casual contributors tha
 
 ## General information
 
-### Pull requests and different branches recommended
+### New branches and pull requests recommended
 
-Pull requests are preferred, since they are specific. For more about how to create a pull request, see <https://help.github.com/articles/using-pull-requests/>.
+We recommend:
 
-We recommend creating different branches for different (logical) changes, and creating a pull request when you're done into the main branch. See the GitHub documentation on [creating branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) and [using pull requests](https://help.github.com/articles/using-pull-requests/).
+1. creating a new branch for a set of logical changes
+
+2. opening a pull request when you're done into the main branch.
+
+See the GitHub documentation on [creating branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) and [using pull requests](https://help.github.com/articles/using-pull-requests/).
 
 ### How we handle proposals
 
-We use GitHub to track proposed changes via its [issue tracker](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/issues) and [pull requests](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/pulls). Specific changes are proposed using those mechanisms. Issues are assigned to an individual, who works it and then marks it complete. If there are questions or objections, the conversation area of that issue or pull request is used to resolve it.
+We use GitHub to track proposed changes via its [issue tracker](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/issues) and [pull requests](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/pulls). Specific changes are proposed using those mechanisms. Issues are assigned to an individual, who works it, and then marks it complete. If there are questions or objections, the conversation area of that issue or pull request is used to resolve it.
 
 ### Two-person review
 
