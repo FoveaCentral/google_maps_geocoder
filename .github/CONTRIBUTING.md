@@ -34,11 +34,13 @@ Simply submitting a contribution implies this agreement, however, please include
 
 It's not practical to fix old contributions in git, so if one is forgotten, do not try to fix them. We presume that if someone sometimes used a DCO, a commit without a DCO is an accident and the DCO still applies.
 
-## **New to open-source?**
+## Types of contributions
+
+### **New to open-source?**
 
 Try your hand at one of the small tasks ideal for new or casual contributors that are [up-for-grabs](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/issues?q=is%3Aissue+is%3Aopen+label%3Aup-for-grabs). Welcome to the community!
 
-## **Did you find a bug?**
+### **Did you find a bug?**
 
 1. **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/issues).
 
@@ -47,7 +49,7 @@ Try your hand at one of the small tasks ideal for new or casual contributors tha
     2. as much **relevant information** as possible
     3. a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
 
-## **Did you write a patch that fixes a bug or adds a new feature?**
+### **Did you write a patch that fixes a bug or adds a new feature?**
 
 1. **Add specs** that either *reproduce the bug* or *cover the new feature*. In the former's case, *make sure it fails without the fix!*
 
