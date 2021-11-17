@@ -33,7 +33,7 @@ We recommend:
 
 2. opening a pull request when you're done into the main branch.
 
-See the GitHub documentation on [creating branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) and [using pull requests](https://help.github.com/articles/using-pull-requests/).
+For more information, see the GitHub documentation on [creating branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository) and [pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ### How we handle proposals
 
