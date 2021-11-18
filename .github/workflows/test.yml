@@ -5,10 +5,6 @@ on:
     paths-ignore:
       - '**.md'
       - '**.txt'
-  push:
-    paths-ignore:
-      - '**.md'
-      - '**.txt'
 jobs:
   test:
     environment: staging
