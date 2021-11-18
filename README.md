@@ -1,8 +1,8 @@
 # GoogleMapsGeocoder
 
-[![Build status](https://github.com/FoveaCentral/google_maps_geocoder/workflows/test/badge.svg)](https://github.com/FoveaCentral/google_maps_geocoder/actions/workflows/test.yml)
-[![Code Climate](https://codeclimate.com/github/FoveaCentral/google_maps_geocoder.svg)](https://codeclimate.com/github/FoveaCentral/google_maps_geocoder)
-[![Coverage Status](https://coveralls.io/repos/github/FoveaCentral/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/FoveaCentral/google_maps_geocoder?branch=master)
+[![Build status](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/workflows/test/badge.svg)](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/actions/workflows/test.yml)
+[![Code Climate](https://codeclimate.com/github/GoogleMapsGeocoder/google_maps_geocoder.svg)](https://codeclimate.com/github/GoogleMapsGeocoder/google_maps_geocoder)
+[![Coverage Status](https://coveralls.io/repos/github/GoogleMapsGeocoder/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/GoogleMapsGeocoder/google_maps_geocoder?branch=master)
 [![Inline docs](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder.svg?branch=master)](https://inch-ci.org/github/Ivanoblomov/google_maps_geocoder)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/92/badge)](https://bestpractices.coreinfrastructure.org/projects/92)
 [![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](https://rubygems.org/gems/google_maps_geocoder)
@@ -34,7 +34,7 @@ A simple Plain Old Ruby Object wrapper for geocoding with Google Maps.
 `GoogleMapsGeocoder` is cryptographically signed. To insure the gem you install hasn’t been tampered with, add my public key as a trusted certificate and then install:
 
 ```sh
-gem cert --add <(curl -Ls https://raw.github.com/FoveaCentral/google_maps_geocoder/master/certs/ivanoblomov.pem)
+gem cert --add <(curl -Ls https://raw.github.com/GoogleMapsGeocoder/google_maps_geocoder/master/certs/ivanoblomov.pem)
 gem install google_maps_geocoder -P HighSecurity
 ```
 

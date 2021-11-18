@@ -20,7 +20,7 @@ For more information, see GitHub's documentation on [creating branches](https://
 
 ### How we handle proposals
 
-We use GitHub to track proposed changes via its [issue tracker](https://github.com/FoveaCentral/google_maps_geocoder/issues) and [pull requests](https://github.com/FoveaCentral/google_maps_geocoder/pulls). Specific changes are proposed using those mechanisms. Issues are assigned to an individual, who works it, and then marks it complete. If there are questions or objections, the conversation area of that issue or pull request is used to resolve it.
+We use GitHub to track proposed changes via its [issue tracker](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/issues) and [pull requests](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/pulls). Specific changes are proposed using those mechanisms. Issues are assigned to an individual, who works it, and then marks it complete. If there are questions or objections, the conversation area of that issue or pull request is used to resolve it.
 
 ### Two-person review
 
@@ -44,13 +44,13 @@ It's not practical to fix old contributions in git, so if one is forgotten, do n
 
 ### **New to open-source?**
 
-Try your hand at one of the small tasks ideal for new or casual contributors that are [up-for-grabs](https://github.com/FoveaCentral/google_maps_geocoder/issues?q=is%3Aissue+is%3Aopen+label%3Aup-for-grabs). Welcome to the community!
+Try your hand at one of the small tasks ideal for new or casual contributors that are [up-for-grabs](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/issues?q=is%3Aissue+is%3Aopen+label%3Aup-for-grabs). Welcome to the community!
 
 ### **Did you find a bug?**
 
-1. **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/FoveaCentral/google_maps_geocoder/issues).
+1. **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/issues).
 
-2. If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/FoveaCentral/google_maps_geocoder/issues/new/choose). Be sure to include:
+2. If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/issues/new/choose). Be sure to include:
     1. a **title and clear description**
     2. as much **relevant information** as possible
     3. a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
@@ -63,6 +63,6 @@ Try your hand at one of the small tasks ideal for new or casual contributors tha
 
 3. **Update the inline documentation.** Format it with [YARD](https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md). For example, see [`GoogleMapsGeocoder.new`](../lib/google_maps_geocoder/google_maps_geocoder.rb).
 
-4. [Open a pull request](https://github.com/FoveaCentral/google_maps_geocoder/compare) with the patch or feature. Follow the template's directions.
+4. [Open a pull request](https://github.com/GoogleMapsGeocoder/google_maps_geocoder/compare) with the patch or feature. Follow the template's directions.
 
 ## Thanks for contributing!
