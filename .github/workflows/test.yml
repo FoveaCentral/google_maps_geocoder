@@ -31,5 +31,6 @@ jobs:
       with:
         codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
         command: after-build --coverage-input-type lcov
+        if: ${{ github.event_name != 'pull_request' }}
     - name: Rubocop
       run: bundle exec rubocop
