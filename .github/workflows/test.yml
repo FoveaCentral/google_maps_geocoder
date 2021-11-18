@@ -2,8 +2,6 @@
 name: test
 on:
   pull_request:
-    branches:
-      - master
     paths-ignore:
       - '**.md'
       - '**.txt'
@@ -32,9 +30,7 @@ jobs:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       run: bundle exec rake
     - name: Code Climate coverage
-      env:
-        GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
-      uses: FoveaCentral/codeclimate-test-reporter@v1
+      uses: aktions/codeclimate-test-reporter@v1
       with:
         codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
         command: after-build --coverage-input-type lcov
