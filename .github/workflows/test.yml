@@ -1,10 +1,6 @@
 # Download the latest Ruby patch versions, install dependencies, and run tests.
 name: test
 on:
-  pull_request:
-    paths-ignore:
-      - '**.md'
-      - '**.txt'
   push:
     paths-ignore:
       - '**.md'
