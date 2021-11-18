@@ -56,7 +56,7 @@ describe GoogleMapsGeocoder do
         it { expect(subject.latitude).to eq subject.lat }
         it { expect(subject.longitude).to eq subject.lng }
         it { expect(subject.state).to eq subject.state_long_name }
-        it { expect(subject.state_code).to eq subject.state_short_name }
+        it { expect(subject.state_code).to eq nil }
       end
     end
     context 'when API key is invalid' do
