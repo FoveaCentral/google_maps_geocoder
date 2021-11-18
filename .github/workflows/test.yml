@@ -31,7 +31,7 @@ jobs:
       run: bundle exec rake
     - name: Code Climate coverage
       uses: aktions/codeclimate-test-reporter@v1
-        if: ${{ github.event_name != 'pull_request' }}
+      if: ${{ github.event_name != 'pull_request' }}
       with:
         codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
         command: after-build --coverage-input-type lcov
