@@ -32,10 +32,9 @@ jobs:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       run: bundle exec rake
     - name: Code Climate coverage
-      uses: aktions/codeclimate-test-reporter@v1
+      uses: FoveaCentral/codeclimate-test-reporter@v1
       with:
         codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
         command: after-build --coverage-input-type lcov
-        ref: ${{ github.event.pull_request.head.sha }}
     - name: Rubocop
       run: bundle exec rubocop
