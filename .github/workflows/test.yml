@@ -6,6 +6,8 @@ on:
       - '**.md'
       - '**.txt'
   push:
+    branches:
+      - master
     paths-ignore:
       - '**.md'
       - '**.txt'
