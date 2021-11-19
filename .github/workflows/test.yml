@@ -1,7 +1,6 @@
 # Download the latest Ruby patch versions, install dependencies, and run tests.
 name: test
 on:
-  pull_request:
   push:
     paths-ignore:
       - '**.md'
@@ -26,6 +25,11 @@ jobs:
       env:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       run: bundle exec rake
+    - name: Code Climate coverage
+      uses: aktions/codeclimate-test-reporter@v1
+      with:
+        codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
+        command: after-build --coverage-input-type lcov
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
