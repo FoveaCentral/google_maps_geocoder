@@ -71,7 +71,7 @@ class GoogleMapsGeocoder
     @json = address.is_a?(String) ? google_maps_response(address) : address
     status = @json && @json[:status]
     raise RuntimeError if status == 'OVER_QUERY_LIMIT'
-    raise GeocodingError, @json if !@json || (@json && @json.empty?) || status != 'OK'
+    raise GeocodingError, @json if !@json || @json.empty? || status != 'OK'
 
     set_attributes_from_json
     Logger.new($stderr).info('GoogleMapsGeocoder') do
