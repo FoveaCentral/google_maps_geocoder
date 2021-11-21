@@ -69,7 +69,7 @@ class GoogleMapsGeocoder
   #   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania DC'
   def initialize(address)
     @json = address.is_a?(String) ? google_maps_response(address) : address
-    status = @json && @json['status']
+    status = @json && @json[:status]
     raise RuntimeError if status == 'OVER_QUERY_LIMIT'
     raise GeocodingError, @json if !@json || (@json && @json.empty?) || status != 'OK'
 
@@ -101,7 +101,7 @@ class GoogleMapsGeocoder
   #   GoogleMapsGeocoder.new('1600 Pennsylvania DC').partial_match?
   #     => true
   def partial_match?
-    @json['results'][0]['partial_match'] == true
+    @json[:results][0][:partial_match] == true
   end
 
   # A geocoding error returned by Google Maps.
@@ -122,10 +122,10 @@ class GoogleMapsGeocoder
     # @return [GeocodingError] the geocoding error
     def initialize(json = {})
       @json = json
-      if (message = @json['error_message'])
+      if (message = @json[:error_message])
         Logger.new($stderr).error(message)
       end
-      super @json['status']
+      super @json[:status]
     end
   end
 
@@ -149,9 +149,9 @@ class GoogleMapsGeocoder
     http
   end
 
-  def parse_address_component_type(type, name = 'long_name')
-    address_component = @json['results'][0]['address_components'].detect do |ac|
-      ac['types']&.include?(type)
+  def parse_address_component_type(type, name = :long_name)
+    address_component = @json[:results][0][:address_components].detect do |ac|
+      ac[:types]&.include?(type)
     end
     address_component && address_component[name]
   end
@@ -166,7 +166,7 @@ class GoogleMapsGeocoder
   end
 
   def parse_country_short_name
-    parse_address_component_type('country', 'short_name')
+    parse_address_component_type('country', :short_name)
   end
 
   def parse_county
@@ -174,7 +174,7 @@ class GoogleMapsGeocoder
   end
 
   def parse_formatted_address
-    @json['results'][0]['formatted_address']
+    @json[:results][0][:formatted_address]
   end
 
   def parse_formatted_street_address
@@ -183,11 +183,11 @@ class GoogleMapsGeocoder
   end
 
   def parse_lat
-    @json['results'][0]['geometry']['location']['lat']
+    @json[:results][0][:geometry][:location][:lat]
   end
 
   def parse_lng
-    @json['results'][0]['geometry']['location']['lng']
+    @json[:results][0][:geometry][:location][:lng]
   end
 
   def parse_postal_code
@@ -199,7 +199,7 @@ class GoogleMapsGeocoder
   end
 
   def parse_state_short_name
-    parse_address_component_type('administrative_area_level_1', 'short_name')
+    parse_address_component_type('administrative_area_level_1', :short_name)
   end
 
   def set_attributes_from_json
