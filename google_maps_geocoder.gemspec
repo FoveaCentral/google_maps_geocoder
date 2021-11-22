@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.email = 'rod@foveacentral.com'
   s.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME =~ /gem\z/
 
-  s.add_runtime_dependency 'activesupport', '>= 4.1.11', '< 7.0'
   s.add_runtime_dependency 'rack', '>= 2.1.4', '< 2.3.0'
 
   s.files = `git ls-files`.split "\n"
