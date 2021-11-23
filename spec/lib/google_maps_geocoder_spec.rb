@@ -15,7 +15,7 @@ describe GoogleMapsGeocoder do
         pending 'waiting for query limit to pass'
       end
 
-      it { should be_exact_match }
+      it(silence_logger: false) { should be_exact_match }
 
       context 'address' do
         it do
