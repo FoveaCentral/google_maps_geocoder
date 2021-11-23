@@ -5,24 +5,15 @@
 require "#{File.dirname(__FILE__)}/../spec_helper"
 # rubocop:disable Metrics/BlockLength
 describe GoogleMapsGeocoder do
-  before(:example) do
-    # rubocop:disable Lint/RedundantCopDisableDirective, Style/RedundantBegin
-    begin
-      @exact_match = GoogleMapsGeocoder.new('White House')
-    rescue SocketError
-      @no_network  = true
-    rescue RuntimeError
-      @query_limit = true
-    end
-    # rubocop:enable Lint/RedundantCopDisableDirective, Style/RedundantBegin
-
-    pending 'waiting for a network connection' if @no_network
-    pending 'waiting for query limit to pass' if @query_limit
-  end
-
   describe '#new' do
     context 'with "White House"' do
-      subject { @exact_match }
+      subject do
+        GoogleMapsGeocoder.new('White House')
+      rescue SocketError
+        pending 'waiting for a network connection'
+      rescue GoogleMapsGeocoder::GeocodingError
+        pending 'waiting for query limit to pass'
+      end
 
       it { should be_exact_match }
 
@@ -65,7 +56,11 @@ describe GoogleMapsGeocoder do
 
       after { ENV['GOOGLE_MAPS_API_KEY'] = @key }
 
-      subject { GoogleMapsGeocoder.new('nowhere that comes to mind') }
+      subject do
+        GoogleMapsGeocoder.new('nowhere that comes to mind')
+      rescue SocketError
+        pending 'waiting for a network connection'
+      end
 
       it do
         expect { subject }.to raise_error GoogleMapsGeocoder::GeocodingError,
