@@ -15,7 +15,7 @@ RSpec.describe GoogleMapsGeocoder, silence_logger: true do
         pending 'waiting for query limit to pass'
       end
 
-      it('should be an exact match', silence_logger: false) {
+      it('should be an exact match') {
         a_quiet_logger = Logger.new(IO::NULL)
         allow(Logger).to receive(:new).and_return(a_quiet_logger)
         should be_exact_match
