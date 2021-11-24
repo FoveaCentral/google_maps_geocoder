@@ -17,13 +17,12 @@ require 'google_maps_geocoder/google_maps_geocoder'
 RSpec.configure do |config|
   config.before(:example, silence_logger = true) do
     if silence_logger
-      allow_any_instance_of(Logger).to receive(:info).and_return true
-      allow_any_instance_of(Logger).to receive(:error).and_return true
+      quiet_logger = Logger.new(IO::NULL)
+      allow(Logger).to receive(:new).and_return(quiet_logger)
     end
   end
 
   config.after(:example) do
-    allow_any_instance_of(Logger).to receive(:info).and_call_original
-    allow_any_instance_of(Logger).to receive(:error).and_call_original
+    allow(Logger).to receive(:new).and_call_original
   end
 end
