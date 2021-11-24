@@ -16,8 +16,6 @@ RSpec.describe GoogleMapsGeocoder, silence_logger: true do
       end
 
       it('should be an exact match') {
-        a_quiet_logger = Logger.new(IO::NULL)
-        allow(Logger).to receive(:new).and_return(a_quiet_logger)
         should be_exact_match
       }
 
