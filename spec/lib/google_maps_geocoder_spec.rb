@@ -4,7 +4,7 @@
 
 require "#{File.dirname(__FILE__)}/../spec_helper"
 # rubocop:disable Metrics/BlockLength
-RSpec.describe GoogleMapsGeocoder, silence_logger: true do
+RSpec.describe GoogleMapsGeocoder do
   describe '#new' do
     context 'with "White House"' do
       subject(:geocoder) do
@@ -15,11 +15,7 @@ RSpec.describe GoogleMapsGeocoder, silence_logger: true do
         pending 'waiting for query limit to pass'
       end
 
-      it('should be an exact match', silence_logger: false) {
-        a_quiet_logger = Logger.new(IO::NULL)
-        allow(Logger).to receive(:new).and_return(a_quiet_logger)
-        should be_exact_match
-      }
+      it('should be an exact match') { should be_exact_match }
 
       context 'address' do
         it do
