@@ -15,7 +15,7 @@ RSpec.describe GoogleMapsGeocoder do
         pending 'waiting for query limit to pass'
       end
 
-      it('should be an exact match') { should be_exact_match }
+      it { should be_exact_match }
 
       context 'address' do
         it do
