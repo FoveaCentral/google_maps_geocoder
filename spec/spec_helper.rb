@@ -20,7 +20,7 @@ RSpec.configure do |config|
     allow_any_instance_of(Logger).to receive(:error).and_return true
   end
 
-  config.after(:example, silence_logger: true) do
+  config.after(:example) do
     allow_any_instance_of(Logger).to receive(:info).and_call_original
     allow_any_instance_of(Logger).to receive(:error).and_call_original
   end
