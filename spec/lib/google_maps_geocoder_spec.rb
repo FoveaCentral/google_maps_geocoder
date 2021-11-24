@@ -17,7 +17,7 @@ RSpec.describe GoogleMapsGeocoder, silence_logger: true do
 
       it("should be an exact match", silence_logger: false) {
         a_quiet_logger = Logger.new(IO::NULL)
-        allow_any_instance_of(Logger).to receive(:info).and_yield(a_quiet_logger) # to attempt to get coverage
+        allow(Logger).to receive(:new).and_return(a_quiet_logger)
         should be_exact_match
       }
 
