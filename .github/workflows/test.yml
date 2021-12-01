@@ -37,4 +37,4 @@ jobs:
     - name: Run RuboCop
       run: bundle exec rubocop
     - name: Run Inch
-      run: bundle exec inch
+      run: bundle exec inch --pedantic
