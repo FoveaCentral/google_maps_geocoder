@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 gemspec
 
-gem 'pry', '~> 0.14.1'
+gem 'inch', '~> 0.8'
 gem 'rake', ['>= 12.3.3', '~> 13.0']
 gem 'rspec', '~> 3'
 gem 'rubocop', '< 1.24'
