@@ -14,6 +14,7 @@ require 'rack'
 #   chez_barack.formatted_address
 #     => "1600 Pennsylvania Avenue Northwest, President's Park,
 #         Washington, DC 20500, USA"
+# rubocop:disable Metrics/ClassLength
 class GoogleMapsGeocoder
   GOOGLE_ADDRESS_SEGMENTS = %i[
     city country_long_name country_short_name county lat lng postal_code
@@ -210,3 +211,4 @@ class GoogleMapsGeocoder
     end
   end
 end
+# rubocop:enable Metrics/ClassLength
