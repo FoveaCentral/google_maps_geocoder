@@ -26,10 +26,9 @@ jobs:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       run: bundle exec rake
     - name: Send Code Climate coverage
-      uses: aktions/codeclimate-test-reporter@v1
+      uses: amancevice/setup-code-climate@v0
       with:
-        codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
-        command: after-build --coverage-input-type lcov
+        cc_test_reporter_id: ${{ secrets.CC_TEST_REPORTER_ID }}
     - name: Send Coveralls coverage
       uses: coverallsapp/github-action@master
       with:
