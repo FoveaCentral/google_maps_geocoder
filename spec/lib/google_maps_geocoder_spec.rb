@@ -20,7 +20,7 @@ RSpec.describe GoogleMapsGeocoder do
       context 'address' do
         it do
           expect(geocoder.formatted_street_address)
-            .to eq '1600 Pennsylvania Avenue Northwest'
+            .to eq '1600 Pennsylvania Avenue'
         end
         it { expect(geocoder.city).to eq 'Washington' }
         it { expect(geocoder.state_long_name).to eq 'District of Columbia' }
