@@ -3,5 +3,5 @@
 # A simple PORO wrapper for geocoding with Google Maps.
 class GoogleMapsGeocoder
   # This gem's version.
-  VERSION = '0.7.6' unless defined?(GoogleMapsGeocoder::VERSION)
+  VERSION = '0.7.7' unless defined?(GoogleMapsGeocoder::VERSION)
 end
