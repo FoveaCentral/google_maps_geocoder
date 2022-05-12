@@ -16,6 +16,7 @@ RSpec.describe GoogleMapsGeocoder do
       end
 
       it { should be_partial_match }
+      it { should_not be_exact_match }
 
       context 'address' do
         it do
