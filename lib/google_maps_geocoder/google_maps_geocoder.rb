@@ -128,7 +128,7 @@ class GoogleMapsGeocoder
       if (message = @json['error_message'])
         Logger.new($stderr).error(message)
       end
-      super @json['status']
+      super @json
     end
   end
 
