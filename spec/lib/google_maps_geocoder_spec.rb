@@ -23,7 +23,7 @@ RSpec.describe GoogleMapsGeocoder do
           expect(geocoder.formatted_street_address)
             .to eq '1600 Pennsylvania Avenue Northwest'
         end
-        it { expect(geocoder.city).to eq 'Washington' }
+        it { expect(geocoder.city).to eq 'Washington DC' }
         it { expect(geocoder.state_long_name).to eq 'District of Columbia' }
         it { expect(geocoder.state_short_name).to eq 'DC' }
         it { expect(geocoder.postal_code).to eq '20500' }
