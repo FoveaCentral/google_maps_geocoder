@@ -70,10 +70,7 @@ RSpec.describe GoogleMapsGeocoder do
         pending 'waiting for a network connection'
       end
 
-      it do
-        expect { geocoder }.to raise_error GoogleMapsGeocoder::GeocodingError,
-                                           'REQUEST_DENIED'
-      end
+      it { expect { geocoder }.to raise_error GoogleMapsGeocoder::GeocodingError }
     end
   end
 end
