@@ -11,7 +11,9 @@ RSpec.describe GoogleMapsGeocoder do
         GoogleMapsGeocoder.new('White House')
       rescue SocketError
         pending 'waiting for a network connection'
-      rescue GoogleMapsGeocoder::GeocodingError
+      rescue GoogleMapsGeocoder::GeocodingError => e
+        raise if e.json['status'] == 'REQUEST_DENIED'
+
         pending 'waiting for query limit to pass'
       end
 
@@ -66,10 +68,7 @@ RSpec.describe GoogleMapsGeocoder do
         pending 'waiting for a network connection'
       end
 
-      it do
-        expect { geocoder }.to raise_error GoogleMapsGeocoder::GeocodingError,
-                                           'REQUEST_DENIED'
-      end
+      it { expect { geocoder }.to raise_error GoogleMapsGeocoder::GeocodingError }
     end
   end
 end
