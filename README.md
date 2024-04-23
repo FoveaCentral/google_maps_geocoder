@@ -108,10 +108,6 @@ Complete RDoc documentation is available at [RubyDoc.info](https://www.rubydoc.i
 
 ## [Contributing to GoogleMapsGeocoder](.github/CONTRIBUTING.md)
 
-## Cheers!
-
-<a href="https://www.buymeacoffee.com/oblomov" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" height="41" width="174" ></a>
-
 ## Copyright
 
 Copyright © 2011-2024 Roderick Monje. See [LICENSE.txt](LICENSE.txt) for further details.
