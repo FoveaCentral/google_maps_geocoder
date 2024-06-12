@@ -9,6 +9,6 @@ gem 'rake', ['>= 12.3.3', '~> 13.0']
 gem 'rspec', '~> 3'
 gem 'rubocop', '< 1.65'
 gem 'rubocop-rake', '~> 0'
-gem 'rubocop-rspec', '~> 2'
+gem 'rubocop-rspec', '~> 3'
 gem 'simplecov', '~> 0.18'
 gem 'simplecov-lcov', '~> 0.8'
