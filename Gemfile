@@ -5,7 +5,7 @@ gemspec
 
 gem 'inch', '~> 0.8'
 gem 'pry', '~> 0.14.1'
-gem 'rake', ['>= 12.3.3', '~> 13.0']
+gem 'rake', '~> 13'
 gem 'rspec', '~> 3'
 gem 'rubocop', '< 1.66'
 gem 'rubocop-rake', '~> 0'
