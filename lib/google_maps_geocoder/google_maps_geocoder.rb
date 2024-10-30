@@ -128,15 +128,15 @@ class GoogleMapsGeocoder
       if (message = @json['error_message'])
         Logger.new($stderr).error(message)
       end
-      super @json
+      super(@json)
     end
   end
 
   private
 
   def google_maps_request(address)
-    "#{GOOGLE_MAPS_API}?address=#{Rack::Utils.escape address}"\
-    "&key=#{ENV['GOOGLE_MAPS_API_KEY']}"
+    "#{GOOGLE_MAPS_API}?address=#{Rack::Utils.escape address}" \
+      "&key=#{ENV.fetch('GOOGLE_MAPS_API_KEY', nil)}"
   end
 
   def google_maps_response(address)
@@ -181,8 +181,8 @@ class GoogleMapsGeocoder
   end
 
   def parse_formatted_street_address
-    "#{parse_address_component_type('street_number')} "\
-    "#{parse_address_component_type('route')}"
+    "#{parse_address_component_type('street_number')} " \
+      "#{parse_address_component_type('route')}"
   end
 
   def parse_lat
@@ -207,7 +207,7 @@ class GoogleMapsGeocoder
 
   def set_attributes_from_json
     ALL_ADDRESS_SEGMENTS.each do |segment|
-      instance_variable_set :"@#{segment}", send("parse_#{segment}")
+      instance_variable_set :"@#{segment}", send(:"parse_#{segment}")
     end
   end
 end
