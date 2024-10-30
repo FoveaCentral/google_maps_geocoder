@@ -58,7 +58,7 @@ RSpec.describe GoogleMapsGeocoder do
           it { expect(geocoder.lat).to be_within(0.005).of(38.8976633) }
         end
 
-        describe '#lat' do
+        describe '#lng' do
           it { expect(geocoder.lng).to be_within(0.005).of(-77.0365739) }
         end
 
