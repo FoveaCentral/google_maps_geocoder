@@ -16,12 +16,12 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'google_maps_geocoder/google_maps_geocoder'
 # silence output
 RSpec.configure do |config|
-  config.before(:example) do
+  config.before do
     quiet_logger = Logger.new(IO::NULL)
     allow(Logger).to receive(:new).and_return(quiet_logger)
   end
 
-  config.after(:example) do
+  config.after do
     allow(Logger).to receive(:new).and_call_original
   end
 end
