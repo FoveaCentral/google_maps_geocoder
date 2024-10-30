@@ -64,35 +64,35 @@ RSpec.describe GoogleMapsGeocoder do
 
         context 'when using Geocoder API' do
           describe '#address' do
-            it { expect(geocoder.address).to eq subject.formatted_address }
+            it { expect(geocoder.address).to eq geocoder.formatted_address }
           end
 
           describe '#coordinates' do
-            it { expect(geocoder.coordinates).to eq [subject.lat, subject.lng] }
+            it { expect(geocoder.coordinates).to eq [geocoder.lat, geocoder.lng] }
           end
 
           describe '#country' do
-            it { expect(geocoder.country).to eq subject.country_long_name }
+            it { expect(geocoder.country).to eq geocoder.country_long_name }
           end
 
           describe '#country_code' do
-            it { expect(geocoder.country_code).to eq subject.country_short_name }
+            it { expect(geocoder.country_code).to eq geocoder.country_short_name }
           end
 
           describe '#latitude' do
-            it { expect(geocoder.latitude).to eq subject.lat }
+            it { expect(geocoder.latitude).to eq geocoder.lat }
           end
 
           describe '#longitude' do
-            it { expect(geocoder.longitude).to eq subject.lng }
+            it { expect(geocoder.longitude).to eq geocoder.lng }
           end
 
           describe '#state' do
-            it { expect(geocoder.state).to eq subject.state_long_name }
+            it { expect(geocoder.state).to eq geocoder.state_long_name }
           end
 
           describe '#state_code' do
-            it { expect(geocoder.state_code).to eq subject.state_short_name }
+            it { expect(geocoder.state_code).to eq geocoder.state_short_name }
           end
         end
       end
