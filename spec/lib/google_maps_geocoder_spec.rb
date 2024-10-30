@@ -7,6 +7,7 @@ require "#{File.dirname(__FILE__)}/../spec_helper"
 RSpec.describe GoogleMapsGeocoder do
   describe '#new' do
     context 'when API key is valid' do
+      # rubocop:disable RSpec/NestedGroups
       context 'with "White House"' do
         subject(:geocoder) do
           described_class.new('White House')
@@ -95,6 +96,7 @@ RSpec.describe GoogleMapsGeocoder do
           end
         end
       end
+      # rubocop:enable RSpec/NestedGroups
     end
 
     context 'when API key is invalid' do
