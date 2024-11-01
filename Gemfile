@@ -7,7 +7,7 @@ gem 'inch', '~> 0.8'
 gem 'pry', '~> 0.14.1'
 gem 'rake', '~> 13'
 gem 'rspec', '~> 3'
-gem 'rubocop', '< 1.68'
+gem 'rubocop', '< 1.69'
 gem 'rubocop-performance', require: false
 gem 'rubocop-rake', require: false
 gem 'rubocop-rspec', require: false
