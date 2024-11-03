@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.email = 'rod@foveacentral.com'
   s.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME.end_with?('gem')
 
-  s.add_dependency 'rack', '>= 2.1.4', '< 3.2.0'
+  s.add_dependency 'rack'
 
   s.files = `git ls-files`.split "\n"
   s.require_paths = ['lib']
