@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
 
   s.files = `git ls-files`.split "\n"
   s.require_paths = ['lib']
-  s.required_ruby_version = '>= 3'
+  s.required_ruby_version = '>= 3.1'
   s.metadata['rubygems_mfa_required'] = 'true'
 end
