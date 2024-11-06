@@ -40,7 +40,7 @@ gem install google_maps_geocoder -P HighSecurity
 ## Ready to Go in One Step
 
 ```ruby
-chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania DC'
+chez_barack = GoogleMapsGeocoder.new 'White House'
 ```
 
 ## Usage
