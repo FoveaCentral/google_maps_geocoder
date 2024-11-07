@@ -10,7 +10,7 @@ A simple Plain Old Ruby Object wrapper for geocoding with Google Maps, `GoogleMa
   * easy to use in **only two steps**
   * lightweight at **only 20.5 K** as a gem
   * only a **single dependency**, the commonly used [Rack](https://github.com/rack/rack)
-  * fully documented with complete test coverage
+  * **fully documented** with *complete test coverage*
 
 ## Installation
 
