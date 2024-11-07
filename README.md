@@ -9,10 +9,10 @@
 A simple Plain Old Ruby Object wrapper for geocoding with Google Maps.
 
 `GoogleMapsGeocoder` gives you Google Maps geocoding functionality with these advantages:
-    * easy to use in only two steps
-    * lightweight at only 20.5 K as a gem
-    * only a single dependency, the commonly used Rack
-    * fully documented with complete test coverage
+  * easy to use in only two steps
+  * lightweight at only 20.5 K as a gem
+  * only a single dependency, the commonly used Rack
+  * fully documented with complete test coverage
 
 ## Installation
 
