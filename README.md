@@ -10,7 +10,8 @@ A simple Plain Old Ruby Object wrapper for geocoding with Google Maps, `GoogleMa
   * *easy to use* in **only one step**
   * **[fully documented](https://www.rubydoc.info/gems/google_maps_geocoder)** with *[complete test coverage](https://coveralls.io/github/FoveaCentral/google_maps_geocoder)*
   * *lightweight* at **[only 20.5 K](https://rubygems.org/gems/google_maps_geocoder)** as a gem (that's less than a quarter the size of [Geocoder](https://rubygems.org/gems/geocoder))
-  * only a **single dependency**, the commonly used [Rack](https://github.com/rack/rack)
+  * only a **[single dependency]()
+**, the commonly used [Rack](https://github.com/rack/rack)
 
 
 ## Installation
