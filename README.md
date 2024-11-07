@@ -6,7 +6,7 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/92/badge)](https://bestpractices.coreinfrastructure.org/projects/92)
 [![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](https://rubygems.org/gems/google_maps_geocoder)
 
-A simple Plain Old Ruby Object wrapper for geocoding with Google Maps.
+A simple Plain Old Ruby Object wrapper for geocoding with Google Maps. At only 20.5 K, `GoogleMapsGeocoder` has only a single dependency, the commonly used Rack.
 
 ## Installation
 
