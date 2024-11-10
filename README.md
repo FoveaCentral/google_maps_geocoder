@@ -4,10 +4,11 @@
 [![Code Climate](https://codeclimate.com/github/FoveaCentral/google_maps_geocoder.svg)](https://codeclimate.com/github/FoveaCentral/google_maps_geocoder)
 [![Coverage Status](https://coveralls.io/repos/github/FoveaCentral/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/FoveaCentral/google_maps_geocoder?branch=master)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/92/badge)](https://bestpractices.coreinfrastructure.org/projects/92)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/FoveaCentral/google_maps_geocoder)](https://scorecard.dev/viewer/?uri=github.com/FoveaCentral/google_maps_geocoder)
 [![Gem Version](https://badge.fury.io/rb/google_maps_geocoder.svg)](https://rubygems.org/gems/google_maps_geocoder)
 
 A simple Plain Old Ruby Object wrapper for geocoding with Google Maps, `GoogleMapsGeocoder` gives you all its geocoding functionality with these advantages:
-  * *easy to use* in **[only one step](README.md#ready-to-go-in-one-step)**
+  * *easy to use* in **[only one step](#ready-to-go-in-one-step)**
   * **[fully documented](https://www.rubydoc.info/gems/google_maps_geocoder)** with *[complete test coverage](https://coveralls.io/github/FoveaCentral/google_maps_geocoder)*
   * *lightweight* at **[only 20.5 K](https://rubygems.org/gems/google_maps_geocoder)** as a gem (that's less than a quarter the size of [Geocoder](https://rubygems.org/gems/geocoder))
   * only a **[single dependency](google_maps_geocoder.gemspec)**, the commonly used [Rack](https://github.com/rack/rack)
