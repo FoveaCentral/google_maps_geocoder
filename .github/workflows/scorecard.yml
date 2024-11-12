@@ -1,4 +1,4 @@
-name: analyze
+name: Analyze
 on:
   push:
     paths-ignore:
@@ -6,7 +6,7 @@ on:
       - '**.txt'
 permissions: read-all
 jobs:
-  scorecard:
+  Scorecard:
     environment: staging
     runs-on: ubuntu-latest
     permissions:
