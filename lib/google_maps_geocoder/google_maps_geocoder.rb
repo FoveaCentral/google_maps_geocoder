@@ -66,7 +66,7 @@ class GoogleMapsGeocoder
   # object.
   #
   # @param address [String] a geocodable address
-  # @param logger [Logger] a standard Logger
+  # @param logger [Logger] a standard Logger, defaults to standard error
   # @return [GoogleMapsGeocoder] the Google Maps result for the specified
   #   address
   # @example
