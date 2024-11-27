@@ -1,10 +1,7 @@
-# Download the latest Ruby patch versions, install dependencies, and run tests.
-name: test
+name: Test
 on:
   push:
-    paths-ignore:
-      - '**.md'
-      - '**.txt'
+permissions: read-all
 jobs:
   test:
     environment: staging
@@ -14,27 +11,20 @@ jobs:
       matrix:
         ruby-version: [3.1, 3.2, 3.3]
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    - name: Set up Ruby ${{ matrix.ruby-version }}
-      uses: ruby/setup-ruby@v1
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+    - uses: ruby/setup-ruby@a2bbe5b1b236842c1cb7dd11e8e3b51e0a616acc
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # 'bundle install' and cache
-    - name: Run tests
+    - run: bundle exec rake
       env:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-      run: bundle exec rake
-    - name: Send Code Climate coverage
-      uses: aktions/codeclimate-test-reporter@v1
+    - uses: aktions/codeclimate-test-reporter@7634aa9ac7883182f583f15ff7b6ff519939dd0a
       with:
         codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
         command: after-build --coverage-input-type lcov
-    - name: Send Coveralls coverage
-      uses: coverallsapp/github-action@master
+    - uses: coverallsapp/github-action@cfd0633edbd2411b532b808ba7a8b5e04f76d2c8
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Run RuboCop
-      run: bundle exec rubocop
-    - name: Run Inch
-      run: bundle exec inch --pedantic
+    - run: bundle exec rubocop
+    - run: bundle exec inch --pedantic
