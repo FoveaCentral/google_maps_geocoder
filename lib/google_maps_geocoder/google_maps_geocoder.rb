@@ -125,7 +125,7 @@ class GoogleMapsGeocoder
     def initialize(json = {})
       @json = json
       if (message = @json['error_message'])
-        Logger.new($stderr).error(message)
+        Logger.new($stderr).error "GeocodingError.new: #{message}"
       end
       super(@json)
     end
