@@ -107,7 +107,7 @@ class GoogleMapsGeocoder
   end
 
   # A geocoding error returned by Google Maps.
-  class GeocodingError < StandardError
+  class GeocodingError < RuntimeError
     # Returns the complete JSON response from Google Maps as a Hash.
     #
     # @return [Hash] Google Maps' JSON response
