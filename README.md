@@ -24,7 +24,7 @@ A simple Plain Old Ruby Object wrapper for geocoding with Google Maps, `GoogleMa
 2. Add `GoogleMapsGeocoder` to your Gemfile and run `bundle`:
 
     ```ruby
-    gem 'google_maps_geocoder', require: 'google_maps_geocoder/google_maps_geocoder'
+    gem 'google_maps_geocoder'
     ```
 
     Or try it out in `irb` with:
