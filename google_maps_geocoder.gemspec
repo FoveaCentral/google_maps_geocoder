@@ -17,8 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rack'
 
-  s.files = ['lib/google_maps_geocoder/google_maps_geocoder.rb']
-  s.require_paths = ['lib/google_maps_geocoder']
+  s.files = ['lib/google_maps_geocoder.rb']
   s.required_ruby_version = '>= 3.1'
   s.metadata['rubygems_mfa_required'] = 'true'
 end
