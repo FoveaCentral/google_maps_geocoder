@@ -71,7 +71,7 @@ class GoogleMapsGeocoder
   #   address
   # @example
   #   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania DC'
-  def initialize(address, logger = Logger.new($stderr))
+  def initialize(address, logger: Logger.new($stderr))
     @json = address.is_a?(String) ? google_maps_response(address) : address
     status = @json && @json['status']
     raise RuntimeError if status == 'OVER_QUERY_LIMIT'
