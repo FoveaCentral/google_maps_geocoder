@@ -121,6 +121,7 @@ class GoogleMapsGeocoder
     # Initialize a GeocodingError wrapping the JSON returned by Google Maps.
     #
     # @param json [Hash] Google Maps' JSON response
+    # @param logger [Logger] a standard Logger
     # @return [GeocodingError] the geocoding error
     def initialize(json = {}, logger:)
       @json = json
