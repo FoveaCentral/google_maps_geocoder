@@ -66,20 +66,19 @@ class GoogleMapsGeocoder
   # object.
   #
   # @param address [String] a geocodable address
+  # @param logger [Logger] a standard Logger, defaults to standard error
   # @return [GoogleMapsGeocoder] the Google Maps result for the specified
   #   address
   # @example
   #   chez_barack = GoogleMapsGeocoder.new '1600 Pennsylvania DC'
-  def initialize(address)
+  def initialize(address, logger: Logger.new($stderr))
     @json = address.is_a?(String) ? google_maps_response(address) : address
     status = @json && @json['status']
     raise RuntimeError if status == 'OVER_QUERY_LIMIT'
-    raise GeocodingError, @json if !@json || @json.empty? || status != 'OK'
+    raise GeocodingError.new(@json, logger:) if !@json || @json.empty? || status != 'OK'
 
     set_attributes_from_json
-    Logger.new($stderr).info('GoogleMapsGeocoder') do
-      "Geocoded \"#{address}\" => \"#{formatted_address}\""
-    end
+    logger.info('GoogleMapsGeocoder') { "Geocoded \"#{address}\" => \"#{formatted_address}\"" }
   end
 
   # Returns the address' coordinates as an array of floats.
@@ -108,7 +107,7 @@ class GoogleMapsGeocoder
   end
 
   # A geocoding error returned by Google Maps.
-  class GeocodingError < StandardError
+  class GeocodingError < RuntimeError
     # Returns the complete JSON response from Google Maps as a Hash.
     #
     # @return [Hash] Google Maps' JSON response
@@ -122,11 +121,12 @@ class GoogleMapsGeocoder
     # Initialize a GeocodingError wrapping the JSON returned by Google Maps.
     #
     # @param json [Hash] Google Maps' JSON response
+    # @param logger [Logger] a standard Logger
     # @return [GeocodingError] the geocoding error
-    def initialize(json = {})
+    def initialize(json = {}, logger:)
       @json = json
       if (message = @json['error_message'])
-        Logger.new($stderr).error(message)
+        logger.error "GeocodingError.new: #{message}"
       end
       super(@json)
     end
