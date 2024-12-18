@@ -31,7 +31,7 @@ A simple Plain Old Ruby Object wrapper for geocoding with Google Maps, `GoogleMa
     Or try it out in `irb` with:
 
     ```ruby
-    require './lib/google_maps_geocoder/google_maps_geocoder'
+    require 'google_maps_geocoder'
     ```
 
 ### Security note
