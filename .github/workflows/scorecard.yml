@@ -4,6 +4,7 @@ on:
 permissions: read-all
 jobs:
   Scorecard:
+    if: github.ref_name == github.event.repository.default_branch
     environment: staging
     runs-on: ubuntu-latest
     permissions:
