@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-require File.expand_path('lib/google_maps_geocoder/version', __dir__)
 Gem::Specification.new do |s|
   s.name = 'google_maps_geocoder'
-  s.version = GoogleMapsGeocoder::VERSION.dup
+  s.version = '1.0.1'
   s.licenses = ['MIT']
   s.summary = 'A simple PORO wrapper for geocoding with Google Maps.'
   s.description = 'Geocode a location without worrying about parsing Google ' \
@@ -17,8 +16,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rack'
 
-  s.files = `git ls-files`.split "\n"
-  s.require_paths = ['lib']
+  s.files = ['lib/google_maps_geocoder.rb']
   s.required_ruby_version = '>= 3.1'
   s.metadata['rubygems_mfa_required'] = 'true'
 end
