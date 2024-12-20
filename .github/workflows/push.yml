@@ -1,3 +1,7 @@
+on:
+  push:
+    tags:
+      - '*'
 jobs:
   push:
     name: Push gem to RubyGems.org
