@@ -3,6 +3,7 @@ on:
   push:
     tags:
       - '*'
+permissions: read-all
 jobs:
   push:
     name: Push gem to RubyGems.org
