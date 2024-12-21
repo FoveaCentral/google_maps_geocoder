@@ -10,9 +10,7 @@ Gem::Specification.new do |s|
                   'Ruby object.'
   s.homepage = 'https://github.com/FoveaCentral/google_maps_geocoder'
   s.authors = ['Roderick Monje']
-  s.cert_chain = ['certs/ivanoblomov.pem']
   s.email = 'rod@foveacentral.com'
-  s.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME.end_with?('gem')
 
   s.add_dependency 'rack'
 
