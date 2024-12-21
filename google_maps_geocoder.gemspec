@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'google_maps_geocoder'
-  s.version = '1.1'
+  s.version = '1.0.1'
   s.licenses = ['MIT']
   s.summary = 'A simple PORO wrapper for geocoding with Google Maps.'
   s.description = 'Geocode a location without worrying about parsing Google ' \
