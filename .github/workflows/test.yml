@@ -23,7 +23,7 @@ jobs:
       with:
         codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
         command: after-build --coverage-input-type lcov
-    - uses: coverallsapp/github-action@cfd0633edbd2411b532b808ba7a8b5e04f76d2c8
+    - uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - run: bundle exec rubocop
