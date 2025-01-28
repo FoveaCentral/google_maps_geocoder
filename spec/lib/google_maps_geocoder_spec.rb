@@ -10,7 +10,7 @@ RSpec.describe GoogleMapsGeocoder do
       # rubocop:disable RSpec/NestedGroups
       context 'with "White House"' do
         subject(:geocoder) do
-          described_class.new('White House')
+          described_class.new('1600 Pennsylvania Ave, Washington DC')
         rescue SocketError
           pending 'waiting for a network connection'
         rescue GoogleMapsGeocoder::GeocodingError => e
