@@ -51,7 +51,7 @@ RSpec.describe GoogleMapsGeocoder do
         end
 
         describe '#formatted_address' do
-          it { expect(geocoder.formatted_address).to match(/1600 Pennsylvania Avenue NW, Washington, DC 20500, USA/) }
+          it { expect(geocoder.formatted_address).to match(/1600 Pennsylvania Ave.+ NW, Washington, DC 20500, USA/) }
         end
 
         describe '#lat' do
