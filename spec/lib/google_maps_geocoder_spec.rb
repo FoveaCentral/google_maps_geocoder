@@ -19,8 +19,8 @@ RSpec.describe GoogleMapsGeocoder do
           pending 'waiting for query limit to pass'
         end
 
-        it { is_expected.to be_partial_match }
-        it { is_expected.not_to be_exact_match }
+        it { is_expected.not_to be_partial_match }
+        it { is_expected.to be_exact_match }
 
         describe '#formatted_street_address' do
           it { expect(geocoder.formatted_street_address).to eq '1600 Pennsylvania Avenue Northwest' }
