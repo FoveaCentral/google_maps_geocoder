@@ -11,7 +11,7 @@ jobs:
       security-events: write # to upload the results to code-scanning dashboard
       id-token: write        # to publish_results and get a badge
     steps:
-    - uses: ossf/scorecard-action@62b2cac7ed8198b15735ed49ab1e5cf35480ba46
+    - uses: ossf/scorecard-action@f49aabe0b5af0936a0987cfb85d86b75731b0186
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         publish_results: true
