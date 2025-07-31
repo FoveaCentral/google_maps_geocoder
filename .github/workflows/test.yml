@@ -25,7 +25,6 @@ jobs:
       with:
         oidc: true
         files: coverage/lcov.info
-    - uses: coverallsapp/github-action@cfd0633edbd2411b532b808ba7a8b5e04f76d2c8
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - run: bundle exec rubocop
