@@ -1,7 +1,9 @@
 name: Test
 on:
   push:
-permissions: read-all
+permissions:
+  contents: read
+  id-token: write
 jobs:
   test:
     environment: staging
@@ -12,18 +14,17 @@ jobs:
         ruby-version: [3.1, 3.2, 3.3]
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-    - uses: ruby/setup-ruby@28c4deda893d5a96a6b2d958c5b47fc18d65c9d3
+    - uses: ruby/setup-ruby@ca041f971d66735f3e5ff1e21cc13e2d51e7e535
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # 'bundle install' and cache
     - run: bundle exec rake
       env:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-    - uses: aktions/codeclimate-test-reporter@7634aa9ac7883182f583f15ff7b6ff519939dd0a
+    - uses: qltysh/qlty-action/coverage@v1
       with:
-        codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
-        command: after-build --coverage-input-type lcov
-    - uses: coverallsapp/github-action@cfd0633edbd2411b532b808ba7a8b5e04f76d2c8
+        oidc: true
+        files: coverage/lcov.info
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - run: bundle exec rubocop
