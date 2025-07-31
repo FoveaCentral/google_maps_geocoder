@@ -1,7 +1,9 @@
 name: Test
 on:
   push:
-permissions: read-all
+permissions:
+  contents: read
+  id-token: write
 jobs:
   test:
     environment: staging
@@ -19,11 +21,10 @@ jobs:
     - run: bundle exec rake
       env:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-    - uses: aktions/codeclimate-test-reporter@7634aa9ac7883182f583f15ff7b6ff519939dd0a
+    - uses: qltysh/qlty-action/coverage@v1
       with:
-        codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
-        command: after-build --coverage-input-type lcov
-    - uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b
+        oidc: true
+        files: coverage/lcov.info
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - run: bundle exec rubocop
