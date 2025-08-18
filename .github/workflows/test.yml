@@ -21,7 +21,7 @@ jobs:
     - run: bundle exec rake
       env:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-    - uses: qltysh/qlty-action/coverage@782ebe01413b63470fe8c3d481de77cef79e1486
+    - uses: qltysh/qlty-action/coverage@a19242102d17e497f437d7466aa01b528537e899
       with:
         oidc: true
         files: coverage/lcov.info
