@@ -118,18 +118,25 @@ class GoogleMapsGeocoder
   attr_reader(*GOOGLE_ADDRESS_SEGMENTS)
 
   # The formatted address as a comma-delimited string.
+  # @return [String] the complete formatted address
   alias address formatted_address
   # The address' country as a full string.
+  # @return [String] country
   alias country country_long_name
   # The address' country as an abbreviated string.
+  # @return [String] country
   alias country_code country_short_name
   # The address' latitude as a float.
+  # @return [Float] latitude
   alias latitude lat
   # The address' longitude as a float.
+  # @return [Float] longitude
   alias longitude lng
   # The address' state as a full string.
+  # @return [String] state
   alias state state_long_name
   # The address' state as an abbreviated string.
+  # @return [String] state
   alias state_code state_short_name
 
   # Geocodes the specified address and wraps the results in a GoogleMapsGeocoder
