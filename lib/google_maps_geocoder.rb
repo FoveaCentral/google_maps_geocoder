@@ -92,6 +92,14 @@ class GoogleMapsGeocoder
   #     => "District of Columbia"
   attr_reader :state_long_name
 
+  # Returns the address' state as an abbreviated string.
+  #
+  # @return [String] state
+  # @example
+  #   chez_barack.state_short_name
+  #     => "DC"
+  attr_reader :state_short_name
+
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
