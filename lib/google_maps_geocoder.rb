@@ -28,6 +28,14 @@ class GoogleMapsGeocoder
   ).freeze
   private_constant :ALL_ADDRESS_SEGMENTS
 
+  # Returns the address' city.
+  #
+  # @return [String] city
+  # @example
+  #   chez_barack.city
+  #     => "Washington"
+  attr_reader :city
+
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
