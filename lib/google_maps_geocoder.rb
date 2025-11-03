@@ -38,7 +38,7 @@ class GoogleMapsGeocoder
 
   # Returns the address' country as a full string.
   #
-  # @return [String] country_long_name
+  # @return [String] country
   # @example
   #   chez_barack.country_long_name
   #     => "United States"
@@ -46,7 +46,7 @@ class GoogleMapsGeocoder
 
   # Returns the address' country as an abbreviated string.
   #
-  # @return [String] country_short_name
+  # @return [String] country
   # @example
   #   chez_barack.country_short_name
   #     => "US"
