@@ -52,6 +52,14 @@ class GoogleMapsGeocoder
   #     => "US"
   attr_reader :country_short_name
 
+  # Returns the address' county.
+  #
+  # @return [String] county
+  # @example
+  #   chez_barack.county
+  #     => nil
+  attr_reader :county
+
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
