@@ -60,6 +60,23 @@ class GoogleMapsGeocoder
   #     => nil
   attr_reader :county
 
+  # Returns the complete formatted address with standardized abbreviations.
+  #
+  # @return [String] the complete formatted address
+  # @example
+  #   chez_barack.formatted_address
+  #     => "1600 Pennsylvania Avenue Northwest, President's Park,
+  #         Washington, DC 20500, USA"
+  attr_reader :formatted_address
+
+  # Returns the formatted street address with standardized abbreviations.
+  #
+  # @return [String] the formatted street address
+  # @example
+  #   chez_barack.formatted_street_address
+  #     => "1600 Pennsylvania Avenue Northwest"
+  attr_reader :formatted_street_address
+
   # Returns the address' latitude as a float.
   #
   # @return [Float] latitude
@@ -99,25 +116,6 @@ class GoogleMapsGeocoder
   #   chez_barack.state_short_name
   #     => "DC"
   attr_reader :state_short_name
-
-  # Returns the complete formatted address with standardized abbreviations.
-  #
-  # @return [String] the complete formatted address
-  # @example
-  #   chez_barack.formatted_address
-  #     => "1600 Pennsylvania Avenue Northwest, President's Park,
-  #         Washington, DC 20500, USA"
-  attr_reader :formatted_address
-
-  # Returns the formatted street address with standardized abbreviations.
-  #
-  # @return [String] the formatted street address
-  # @example
-  #   chez_barack.formatted_street_address
-  #     => "1600 Pennsylvania Avenue Northwest"
-  attr_reader :formatted_street_address
-  # Self-explanatory
-  attr_reader(*GOOGLE_ADDRESS_SEGMENTS)
 
   # Returns the formatted address as a comma-delimited string.
   alias address formatted_address
