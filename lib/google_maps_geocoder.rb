@@ -76,6 +76,14 @@ class GoogleMapsGeocoder
   #     => -77.0365298
   attr_reader :lng
 
+  # Returns the address' postal code.
+  #
+  # @return [String] postal code
+  # @example
+  #   chez_barack.postal_code
+  #     => "20500"
+  attr_reader :postal_code
+
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
