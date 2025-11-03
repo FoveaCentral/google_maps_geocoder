@@ -44,6 +44,14 @@ class GoogleMapsGeocoder
   #     => "United States"
   attr_reader :country_long_name
 
+  # Returns the address' country as an abbreviated string.
+  #
+  # @return [String] country_short_name
+  # @example
+  #   chez_barack.country_short_name
+  #     => "US"
+  attr_reader :country_short_name
+
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
