@@ -68,6 +68,14 @@ class GoogleMapsGeocoder
   #     => 38.8976763
   attr_reader :lat
 
+  # Returns the address' longitude as a float.
+  #
+  # @return [Float] longitude
+  # @example
+  #   chez_barack.lng
+  #     => -77.0365298
+  attr_reader :lng
+
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
