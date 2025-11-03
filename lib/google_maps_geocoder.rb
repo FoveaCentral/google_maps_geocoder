@@ -60,6 +60,14 @@ class GoogleMapsGeocoder
   #     => nil
   attr_reader :county
 
+  # Returns the address' latitude as a float.
+  #
+  # @return [Float] latitude
+  # @example
+  #   chez_barack.lat
+  #     => 38.8976763
+  attr_reader :lat
+
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
