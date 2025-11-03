@@ -36,6 +36,14 @@ class GoogleMapsGeocoder
   #     => "Washington"
   attr_reader :city
 
+  # Returns the address' country as a full string.
+  #
+  # @return [String] country_long_name
+  # @example
+  #   chez_barack.country_long_name
+  #     => "United States"
+  attr_reader :country_long_name
+
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
