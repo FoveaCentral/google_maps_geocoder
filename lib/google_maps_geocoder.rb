@@ -44,7 +44,77 @@ class GoogleMapsGeocoder
   #   chez_barack.formatted_street_address
   #     => "1600 Pennsylvania Avenue Northwest"
   attr_reader :formatted_street_address
-  # Self-explanatory
+
+  # The address' city.
+  # @return [String] city
+  # @example
+  #   chez_barack.city
+  #     => "Washington"
+  # :attr_reader: city
+
+  # The address' country as a full string.
+  #
+  # @return [String] country
+  # @example
+  #   chez_barack.country_long_name
+  #     => "United States"
+  # :attr_reader: country_long_name
+
+  # The address' country as an abbreviated string.
+  #
+  # @return [String] country
+  # @example
+  #   chez_barack.country_short_name
+  #     => "US"
+  # :attr_reader: country_short_name
+
+  # The address' county.
+  #
+  # @return [String] county
+  # @example
+  #   chez_barack.county
+  #     => nil
+  # :attr_reader: county
+
+  # The address' latitude as a float.
+  #
+  # @return [Float] latitude
+  # @example
+  #   chez_barack.lat
+  #     => 38.8976763
+  # :attr_reader: lat
+
+  # The address' longitude as a float.
+  #
+  # @return [Float] longitude
+  # @example
+  #   chez_barack.lng
+  #     => -77.0365298
+  # :attr_reader: lng
+
+  # The address' postal code.
+  #
+  # @return [String] postal code
+  # @example
+  #   chez_barack.postal_code
+  #     => "20500"
+  # :attr_reader: postal_code
+
+  # The address' state as a full string.
+  #
+  # @return [String] state
+  # @example
+  #   chez_barack.state_long_name
+  #     => "District of Columbia"
+  # :attr_reader: state_long_name
+
+  # The address' state as an abbreviated string.
+  #
+  # @return [String] state
+  # @example
+  #   chez_barack.state_short_name
+  #     => "DC"
+  # :attr_reader: state_short_name
   attr_reader(*GOOGLE_ADDRESS_SEGMENTS)
 
   # Returns the formatted address as a comma-delimited string.
