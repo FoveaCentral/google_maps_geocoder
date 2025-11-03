@@ -84,6 +84,14 @@ class GoogleMapsGeocoder
   #     => "20500"
   attr_reader :postal_code
 
+  # Returns the address' state as a full string.
+  #
+  # @return [String] state
+  # @example
+  #   chez_barack.state_long_name
+  #     => "District of Columbia"
+  attr_reader :state_long_name
+
   # Returns the complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
