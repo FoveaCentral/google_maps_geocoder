@@ -143,8 +143,8 @@ class GoogleMapsGeocoder
   # Geocodes the specified address and wraps the results in a GoogleMapsGeocoder
   # object.
   #
-  # @param address [String] a geocodable address
-  # @param logger [Logger] a standard Logger, defaults to standard error
+  # @param [String] address a geocodable address
+  # @param [Logger] logger a standard Logger, defaults to standard error
   # @return [GoogleMapsGeocoder] the Google Maps result for the specified
   #   address
   # @example
@@ -198,8 +198,8 @@ class GoogleMapsGeocoder
 
     # Initialize a GeocodingError wrapping the JSON returned by Google Maps.
     #
-    # @param json [Hash] Google Maps' JSON response
-    # @param logger [Logger] a standard Logger
+    # @param [Hash] json Google Maps' JSON response
+    # @param [Logger] logger a standard Logger
     # @return [GeocodingError] the geocoding error
     def initialize(json = {}, logger:)
       @json = json
