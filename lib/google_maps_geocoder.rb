@@ -28,7 +28,7 @@ class GoogleMapsGeocoder
   ).freeze
   private_constant :ALL_ADDRESS_SEGMENTS
 
-  # Returns the complete formatted address with standardized abbreviations.
+  # The complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
   # @example
@@ -37,7 +37,7 @@ class GoogleMapsGeocoder
   #         Washington, DC 20500, USA"
   attr_reader :formatted_address
 
-  # Returns the formatted street address with standardized abbreviations.
+  # The formatted street address with standardized abbreviations.
   #
   # @return [String] the formatted street address
   # @example
@@ -46,6 +46,7 @@ class GoogleMapsGeocoder
   attr_reader :formatted_street_address
 
   # The address' city.
+  #
   # @return [String] city
   # @example
   #   chez_barack.city
