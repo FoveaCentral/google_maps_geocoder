@@ -160,6 +160,11 @@ class GoogleMapsGeocoder
   end
 
   # Returns the address' coordinates as an array of floats.
+  #
+  # @return [Array] the latitude and longitude in an array
+  # @example
+  #   chez_barack.coordinates
+  #     => [38.8975862, -77.0366871]
   def coordinates
     [lat, lng]
   end
