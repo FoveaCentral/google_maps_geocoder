@@ -11,12 +11,17 @@ jobs:
       security-events: write # to upload the results to code-scanning dashboard
       id-token: write        # to publish_results and get a badge
     steps:
-    - uses: ossf/scorecard-action@f49aabe0b5af0936a0987cfb85d86b75731b0186
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@95d9a5deda9de15063e7595e9719c11c38c90ae2 # v2.13.2
+      with:
+        egress-policy: audit
+
+    - uses: ossf/scorecard-action@4eaacf0543bb3f2c246792bd56e8cdeffafb205a
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         publish_results: true
         results_file: results.sarif
         results_format: sarif
-    - uses: github/codeql-action/upload-sarif@45775bd8235c68ba998cffa5171334d58593da47
+    - uses: github/codeql-action/upload-sarif@0499de31b99561a6d14a36a5f662c2a54f91beee
       with:
         sarif_file: results.sarif
