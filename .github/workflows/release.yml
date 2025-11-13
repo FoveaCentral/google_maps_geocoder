@@ -8,11 +8,9 @@ jobs:
   push:
     name: Push gem to RubyGems.org
     runs-on: ubuntu-latest
-
     permissions:
       id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
       contents: write # IMPORTANT: this permission is required for `rake release` to push the release tag
-
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@95d9a5deda9de15063e7595e9719c11c38c90ae2 # v2.13.2
