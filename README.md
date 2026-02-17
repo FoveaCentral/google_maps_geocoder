@@ -1,6 +1,6 @@
 # GoogleMapsGeocoder
 
-[![Build status](https://github.com/FoveaCentral/google_maps_geocoder/workflows/test/badge.svg)](https://github.com/FoveaCentral/google_maps_geocoder/actions/workflows/test.yml)
+[![Test](https://github.com/FoveaCentral/google_maps_geocoder/actions/workflows/test.yml/badge.svg)](https://github.com/FoveaCentral/google_maps_geocoder/actions/workflows/test.yml)
 [![Maintainability](https://qlty.sh/gh/FoveaCentral/projects/google_maps_geocoder/maintainability.svg)](https://qlty.sh/gh/FoveaCentral/projects/google_maps_geocoder)[![Coverage Status](https://coveralls.io/repos/github/FoveaCentral/google_maps_geocoder/badge.svg?branch=master)](https://coveralls.io/github/FoveaCentral/google_maps_geocoder?branch=master)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/92/badge)](https://www.bestpractices.dev/projects/92)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/FoveaCentral/google_maps_geocoder/badge)](https://scorecard.dev/viewer/?uri=github.com/FoveaCentral/google_maps_geocoder)
