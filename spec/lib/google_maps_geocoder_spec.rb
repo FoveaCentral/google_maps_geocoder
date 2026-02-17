@@ -3,7 +3,6 @@
 # frozen_string_literal: true
 
 require "#{File.dirname(__FILE__)}/../spec_helper"
-# rubocop:disable Metrics/BlockLength
 RSpec.describe GoogleMapsGeocoder do
   describe '#new' do
     context 'when API key is valid' do
@@ -117,4 +116,3 @@ RSpec.describe GoogleMapsGeocoder do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength
