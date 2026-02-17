@@ -19,7 +19,7 @@ jobs:
         egress-policy: audit
 
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-    - uses: ruby/setup-ruby@8aeb6ff8030dd539317f8e1769a044873b56ea71
+    - uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # 'bundle install' and cache
