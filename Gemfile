@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 gemspec
 
+gem 'gem-release'
 gem 'inch'
 gem 'pry'
 gem 'rake'
