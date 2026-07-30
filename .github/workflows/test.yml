@@ -14,19 +14,19 @@ jobs:
         ruby-version: [3.3, 3.4, 4.0]
     steps:
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+      uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
       with:
         egress-policy: audit
 
-    - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
-    - uses: ruby/setup-ruby@89f90524b88a01fe6e0b732220432cc6142926af
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+    - uses: ruby/setup-ruby@a30dfa457ad68707b8b910ac3a244714b61c0626
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # 'bundle install' and cache
     - run: bundle exec rake
       env:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-    - uses: qltysh/qlty-action/coverage@fd52dc852530a708d68c3b7342f8d33d1df4cd55
+    - uses: qltysh/qlty-action/coverage@08a0a862c159eae9b9003081da6663d96efef637
       with:
         oidc: true
         files: coverage/lcov.info
