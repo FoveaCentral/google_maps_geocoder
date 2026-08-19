@@ -28,7 +28,7 @@ class GoogleMapsGeocoder
   ).freeze
   private_constant :ALL_ADDRESS_SEGMENTS
 
-  # Returns the complete formatted address with standardized abbreviations.
+  # The complete formatted address with standardized abbreviations.
   #
   # @return [String] the complete formatted address
   # @example
@@ -37,36 +37,114 @@ class GoogleMapsGeocoder
   #         Washington, DC 20500, USA"
   attr_reader :formatted_address
 
-  # Returns the formatted street address with standardized abbreviations.
+  # The formatted street address with standardized abbreviations.
   #
   # @return [String] the formatted street address
   # @example
   #   chez_barack.formatted_street_address
   #     => "1600 Pennsylvania Avenue Northwest"
   attr_reader :formatted_street_address
-  # Self-explanatory
+
+  # The address' city.
+  #
+  # @return [String] city
+  # @example
+  #   chez_barack.city
+  #     => "Washington"
+  # :attr_reader: city
+
+  # The address' country as a full string.
+  #
+  # @return [String] country
+  # @example
+  #   chez_barack.country_long_name
+  #     => "United States"
+  # :attr_reader: country_long_name
+
+  # The address' country as an abbreviated string.
+  #
+  # @return [String] country
+  # @example
+  #   chez_barack.country_short_name
+  #     => "US"
+  # :attr_reader: country_short_name
+
+  # The address' county.
+  #
+  # @return [String] county
+  # @example
+  #   chez_barack.county
+  #     => nil
+  # :attr_reader: county
+
+  # The address' latitude as a float.
+  #
+  # @return [Float] latitude
+  # @example
+  #   chez_barack.lat
+  #     => 38.8976763
+  # :attr_reader: lat
+
+  # The address' longitude as a float.
+  #
+  # @return [Float] longitude
+  # @example
+  #   chez_barack.lng
+  #     => -77.0365298
+  # :attr_reader: lng
+
+  # The address' postal code.
+  #
+  # @return [String] postal code
+  # @example
+  #   chez_barack.postal_code
+  #     => "20500"
+  # :attr_reader: postal_code
+
+  # The address' state as a full string.
+  #
+  # @return [String] state
+  # @example
+  #   chez_barack.state_long_name
+  #     => "District of Columbia"
+  # :attr_reader: state_long_name
+
+  # The address' state as an abbreviated string.
+  #
+  # @return [String] state
+  # @example
+  #   chez_barack.state_short_name
+  #     => "DC"
+  # :attr_reader: state_short_name
   attr_reader(*GOOGLE_ADDRESS_SEGMENTS)
 
-  # Returns the formatted address as a comma-delimited string.
+  # The formatted address as a comma-delimited string.
+  # @return [String] the complete formatted address
   alias address formatted_address
-  # Returns the address' country as a full string.
+  # The address' country as a full string.
+  # @return [String] country
   alias country country_long_name
-  # Returns the address' country as an abbreviated string.
+  # The address' country as an abbreviated string.
+  # @return [String] country
   alias country_code country_short_name
-  # Returns the address' latitude as a float.
+  # The address' latitude as a float.
+  # @return [Float] latitude
   alias latitude lat
-  # Returns the address' longitude as a float.
+  # The address' longitude as a float.
+  # @return [Float] longitude
   alias longitude lng
-  # Returns the address' state as a full string.
+  # The address' state as a full string.
+  # @return [String] state
   alias state state_long_name
-  # Returns the address' state as an abbreviated string.
+  # The address' state as an abbreviated string.
+  # @return [String] state
   alias state_code state_short_name
 
   # Geocodes the specified address and wraps the results in a GoogleMapsGeocoder
   # object.
   #
-  # @param address [String] a geocodable address
-  # @param logger [Logger] a standard Logger, defaults to standard error
+  # @param [String] address a geocodable address
+  # @param [Logger] logger a standard Logger, defaults to standard error
   # @return [GoogleMapsGeocoder] the Google Maps result for the specified
   #   address
   # @example
@@ -82,6 +160,11 @@ class GoogleMapsGeocoder
   end
 
   # Returns the address' coordinates as an array of floats.
+  #
+  # @return [Array] the latitude and longitude in an array
+  # @example
+  #   chez_barack.coordinates
+  #     => [38.8975862, -77.0366871]
   def coordinates
     [lat, lng]
   end
@@ -120,8 +203,8 @@ class GoogleMapsGeocoder
 
     # Initialize a GeocodingError wrapping the JSON returned by Google Maps.
     #
-    # @param json [Hash] Google Maps' JSON response
-    # @param logger [Logger] a standard Logger
+    # @param [Hash] json Google Maps' JSON response
+    # @param [Logger] logger a standard Logger
     # @return [GeocodingError] the geocoding error
     def initialize(json = {}, logger:)
       @json = json
