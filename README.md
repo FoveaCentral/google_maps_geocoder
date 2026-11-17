@@ -38,7 +38,7 @@ A simple Plain Old Ruby Object wrapper for geocoding with Google Maps, `GoogleMa
 `GoogleMapsGeocoder` is cryptographically signed. To insure the gem you install hasn’t been tampered with, add my public key as a trusted certificate and then install:
 
 ```sh
-gem cert --add <(curl -Ls https://raw.github.com/FoveaCentral/google_maps_geocoder/master/certs/ivanoblomov.pem)
+gem cert --add <(curl -Ls https://raw.github.com/FoveaCentral/google_maps_geocoder/master/certs/rubygems.pem)
 gem install google_maps_geocoder -P HighSecurity
 ```
 
